@@ -1,0 +1,216 @@
+<?php //print_r($this); ?>
+<?php 
+ $GLOBALS['TL_CSS'][] = 'system/modules/multifileupload/assets/css/dropzone.css';
+ $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/multifileupload/assets/js/dropzone.js';
+$addToFile = $this->generate();
+if(\Input::post('myid['.$this->strId.']') != "") $addToFile = \Input::post('myid['.$this->strId.']');
+if(\Input::get('myid['.$this->strId.']') != "") $addToFile = \Input::get('myid['.$this->strId.']');
+?>
+
+<div type="text" id="dropzone_<?php echo($this->strId); ?>" class="dropzone">
+    <input type="hidden" name="attachfiles[]" value="">
+    <input type="hidden" name="myid[<?php echo($this->strId); ?>]" value="<?php echo($addToFile); ?>">
+</div>
+	
+<script type="text/javascript">
+/*
+ * replace Dropzone.prototype.addFile to handle duplicate filenames
+ */
+Dropzone.prototype.addFile = function(file) {
+  if (this.files.length) {
+    var _i, _len;
+    var iserror = false;
+    for (_i = 0, _len = this.files.length; _i < _len; _i++) {
+      if(this.files[_i].name === file.name && this.files[_i].size === file.size){
+        iserror = true;
+        console.log(iserror);
+        if (iserror === true ) { 
+        	alert('the file "'+file.name+'" already exists!') 
+        };
+        return false;
+      }
+    }
+  }
+
+
+  file.upload = {
+    progress: 0,
+    total: file.size,
+    bytesSent: 0
+  };
+  this.files.push(file);
+  file.status = Dropzone.ADDED;
+  this.emit("addedfile", file);
+  this._enqueueThumbnail(file);
+  return this.accept(file, (function(_this) {
+    return function(error) {
+      if (error) {
+        file.accepted = false;
+        _this._errorProcessing([file], error);
+      } else {
+        file.accepted = true;
+        if (_this.options.autoQueue) {
+          _this.enqueueFile(file);
+        }
+      }
+      return _this._updateMaxFilesReachedClass();
+    };
+  })(this));
+};
+
+
+
+/*
+ * process dropzone for this elemID and this addToFile
+ */
+// (function(){
+var params = {
+	selector 		: $('#dropzone_<?php echo($this->strId) ?> input[name="attachfiles[]"]'),
+   	input 			: {
+		elemID  	: <?php echo($this->strId); ?>,
+		addToFile 	: <?php echo($addToFile); ?>,
+		files 		: []
+	},
+	
+	/*
+	 * dropzonejs options
+	 */
+	url 					: 'system/modules/multifileupload/assets/upload.php',
+	acceptedFiles 			: '.<?php echo(str_replace(',',',.',$this->extensions)); ?>',
+	autoProcessQueue 		: true,
+	uploadMultiple 			: false,
+	maxFiles 				: <?php echo( $this->maxuploadcount != 0 ? $this->maxuploadcount : 'null' ) ?>,
+	maxFilesize				: <?php echo( $this->maxuploadsize != 0 ? $this->maxuploadsize : '256' ) ?>,
+
+	dictDefaultMessage 		: "Drop files here to upload",
+	dictFallbackMessage 	: "Your browser does not support drag'n'drop file uploads.",
+	dictFallbackText 		: "Please use the fallback form below to upload your files like in the olden days.",
+	// dictFileTooBig 			: "File is too big ({{filesize}}MiB). Max filesize: {{maxFilesize}}MiB.",
+	// dictResponseError 		: "Server responded with {{statusCode}} code.",
+	dictInvalidFileType 	: "You can't upload files of this type.",
+	dictCancelUpload 		: "Cancel upload",
+	dictCancelUploadConfirmation: "Are you sure you want to cancel this upload?",
+	dictRemoveFile 			: "Remove file",
+	dictRemoveFileConfirmation: null,
+	dictMaxFilesExceeded 	: "You can not upload any more files.",
+}
+
+
+Dropzone.autoDiscover = false;
+var myDropzone = new Dropzone("#dropzone_"+params.input.elemID, {
+	
+	elemID 		 	: params.input.elemID,
+	addToFile 		: params.input.addToFile,
+   	url 			: params.url,
+	acceptedFiles 	: params.acceptedFiles,
+	maxFiles 		: params.maxFiles,
+	maxFilesize		: params.maxFilesize,
+	autoProcessQueue: true,
+	uploadMultiple 	: false,
+	addRemoveLinks 	: true,
+	
+	
+	dictDefaultMessage 		: params.dictDefaultMessage,
+	dictFallbackMessage 	: params.dictFallbackMessage,
+	dictFallbackText 		: params.dictFallbackText,
+	// dictFileTooBig 			: params.dictFileTooBig,
+	// dictResponseError 		: params.dictResponseError,
+	dictInvalidFileType 	: params.dictInvalidFileType,
+	dictCancelUpload 		: params.dictCancelUpload,
+	dictCancelUploadConfirmation: params.dictCancelUploadConfirmation,
+	dictRemoveFile 			: params.dictRemoveFile,
+	dictRemoveFileConfirmation: params.dictRemoveFileConfirmation,
+	dictMaxFilesExceeded 	: params.dictMaxFilesExceeded,
+
+
+	init: function() {
+		var myDropzone = this;
+
+		/*
+		 * Events
+		 */
+		myDropzone.on("sending", function(file, xhr, formData) {
+			// add elemid and addtofile to transferred formData.
+			formData.append("addtofile", params.input.addToFile);
+			formData.append("elemid", params.input.elemID);
+		});
+
+		myDropzone.on("success", function(file, serverFileName) {
+		 	params.input.files.push(file.name)
+		 	params.selector.val( JSON.stringify(params.input) )
+		 	
+		 	console.log('Event: success:')
+		 	console.log( params.input )
+		});
+
+		myDropzone.on("removedfile", function(file) {
+			// Called whenever a file is removed from the list. 
+			// You can listen to this and delete the file from your server if you want to.
+		  	var dataDelete = {
+		  		elemID 		: params.input.elemID,
+			  	addToFile 	: params.input.addToFile,
+			  	name 		: file.name
+		  	};
+
+		  	// update server
+		  	$.get('system/modules/multifileupload/assets/upload.php?addtofile='+params.input.addToFile+'&elemid='+params.input.elemID+'&del='+file.name)
+				.done(function( data ) {
+					// remove from params.inputfield
+					params.input.files = params.input.files.filter(function (el) {
+					    return (el != dataDelete.name );
+					});
+					params.selector.val( JSON.stringify(params.input) )
+
+					console.log( 'Event: removedfile -> POST Data')
+					console.log( dataDelete )
+				});
+		});
+
+
+		/*
+		 * load already existing files
+		 */
+        $.get('system/modules/multifileupload/assets/upload.php?addtofile='+params.input.addToFile+'&elemid='+params.input.elemID, function(data) {
+        	console.log('get existing files:')
+        	console.log(data)
+
+            $.each(data, function(key,file){
+                var mockFile = { 
+                	name: file.name, 
+                	size: file.size,
+                	path: file.path  
+                };
+
+                // get files and thumbnails
+                myDropzone.emit("addedfile", mockFile);
+				myDropzone.createThumbnailFromUrl(
+					mockFile, 
+					mockFile.path + '/' + file.name
+				);
+
+                // Make sure that there is no progress bar, etc...
+				myDropzone.emit("complete", mockFile);
+
+                // If you use the maxFiles option, make sure you adjust it to the
+				// correct amount:
+				if ( myDropzone.options.maxFiles != null ) {
+					myDropzone.options.maxFiles = myDropzone.options.maxFiles - 1;   
+				};
+
+
+				// populate myDropzone.files, so that duplicate check can work
+				myDropzone.files.push(mockFile)
+
+				// build data for params.input field
+				params.input.files.push(file.name)
+		 		
+            });
+
+            params.selector.val( JSON.stringify(params.input) )
+        });
+	}
+
+});
+
+// })();
+</script>
