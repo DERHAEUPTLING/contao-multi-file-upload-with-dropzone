@@ -5,6 +5,7 @@
 
 $addToFile = htmlspecialchars($_POST['addtofile']);
 $elemID = htmlspecialchars($_POST['elemid']);
+$rename = htmlspecialchars($_POST['rename']);
 $files = $_FILES;
 unset($_POST);
 unset($_FILES);
@@ -17,6 +18,7 @@ if (!defined('TL_MODE'))
 
 if($addToFile == '') $addToFile = \Input::get('addtofile');
 if($elemID == '') $elemID = \Input::get('elemid');
+if($rename == '') $rename = \Input::get('rename');
 
 $objDatabase = \Database::getInstance();
 $myElemData = $objDatabase->prepare("SELECT * FROM tl_form_field WHERE id = ".$elemID)->execute();
@@ -37,6 +39,8 @@ if(!$myElemData->next())
 
 		$targetPath =  $storeFolder . '/tmp';
 		$targetPathAbs =  $storeFolderAbs . '/tmp';
+		$delPath = $targetPath;
+		$delPathAbs = $targetPathAbs;
 
 		if(!file_exists($targetPathAbs))
 		{
@@ -57,6 +61,7 @@ if(!$myElemData->next())
 	{
 		@unlink( $targetPathAbs . '/' . $_GET['del']);
 		file_exists(!$targetPathAbs. '/' . $_GET['del']) == true ? $retVal = json_encode(array('status' => 'ok')) : $retVal = json_encode(array('status' => 'error','value'=>'fileexists'));	// die Datei ist nicht vorhanden
+		echo($retVal);
 		die();
 	}
 
@@ -72,10 +77,33 @@ if(!$myElemData->next())
 		}
 
 	    $tempFile = $files['file']['tmp_name'];      //3
-	    $targetPathAbs =  $targetPathAbs. '/'. $files['file']['name'];  //5
+	    if($rename != '')
+	    {
+	    	$targetPathAbs =  $targetPathAbs. '/'. $rename;  //5
+	    } else
+	    {
+	    	$targetPathAbs =  $targetPathAbs. '/'. $files['file']['name'];  //5
+	    }
 	    $tmp = move_uploaded_file($tempFile,$targetPathAbs); //6
-		\Dbafs::addResource($targetPath. '/'. $files['file']['name']);
+		//\Dbafs::addResource($targetPath. '/'. $files['file']['name']);
 		file_exists($targetPathAbs) == true ? $retVal = json_encode(array('status' => 'ok')) : $retVal = json_encode(array('status' => 'error','value'=>'nofile'));	// die Datei ist nicht vorhanden
+		echo($retVal);
+		// alte Ordner loeschen
+	    $delFiles = @scandir($delPathAbs);                 //1
+	    if ( false!==$delFiles ) {
+	        foreach ( $delFiles as $file ) {
+	            if ( '.'!=$file && '..'!=$file && '.DS_Store'!=$file) {
+	                if(filemtime($delPathAbs.'/'.$file) <= (time()-(60*60*3)))
+	                {
+	            		echo(filemtime($delPathAbs.'/'.$file).' - '.(time()-(60*60*3))."\n");
+					    $allFiles = array_diff(scandir($delPathAbs.'/'.$file), array('.','..'));
+					    foreach ($allFiles as $allFile) { unlink("$delPathAbs/$file/$allFile"); }
+	                	@rmdir($delPathAbs.'/'.$file);
+	                }
+	            }
+	        }
+	    }
+	    \Dbafs::syncFiles();
 	} else {
 	    $result  = array();
 	    $files = @scandir($targetPathAbs);                 //1
@@ -94,9 +122,6 @@ if(!$myElemData->next())
 	    echo json_encode($result);
 	}
 }
-
-
-
 
 
 

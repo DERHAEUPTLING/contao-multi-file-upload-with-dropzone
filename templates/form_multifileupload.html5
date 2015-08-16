@@ -3,16 +3,43 @@
  $GLOBALS['TL_CSS'][] = 'system/modules/multifileupload/assets/css/dropzone.css';
  $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/multifileupload/assets/js/dropzone.js';
 $addToFile = $this->generate();
-if(\Input::post('myid['.$this->strId.']') != "") $addToFile = \Input::post('myid['.$this->strId.']');
-if(\Input::get('myid['.$this->strId.']') != "") $addToFile = \Input::get('myid['.$this->strId.']');
 ?>
 
-<div type="text" id="dropzone_<?php echo($this->strId); ?>" class="dropzone">
-    <input type="hidden" name="attachfiles[]" value="">
-    <input type="hidden" name="myid[<?php echo($this->strId); ?>]" value="<?php echo($addToFile); ?>">
+<div class="widget widget-dropzone <?php echo $this->cssClass?>">
+	<label for="dropzone_<?php echo($this->strId); ?>">
+		<?php echo($this->label); ?>
+		<?php if ($this->mandatory): ?><span class="mandatory">*</span><?php endif; ?>
+	</label>
+	<!-- <div class="dropzonelabel" id="dropzonelabel_<?php echo($this->strId); ?>">
+		<input type="text" name="<?php echo($this->name); ?>">
+	</div> -->
+	<div type="text" id="dropzone_<?php echo($this->strId); ?>" class="dropzone">
+	    <input type="hidden" name="attachfiles[]" value="">
+	    <input type="hidden" name="<?php echo($this->name); ?>">
+	    <input type="hidden" name="myid[<?php echo($this->strId); ?>]" value="<?php echo($addToFile); ?>">
+
+	</div>
 </div>
-	
+
+<style> 
+	/*#dropzonelabel_<?php echo($this->strId); ?>::after {content: '<?php echo($this->label); ?>'} */
+</style>	
 <script type="text/javascript">
+
+
+/*
+ * helper functions
+ */
+var sanitize = function  (string) {
+	return string.replace(/[^a-z0-9.]/gi, '_')
+}
+var updateSelectorCount = function () {
+	return value = myDropzone.files.length === 0 ? '' : myDropzone.files.length
+}
+
+
+
+
 /*
  * replace Dropzone.prototype.addFile to handle duplicate filenames
  */
@@ -21,9 +48,8 @@ Dropzone.prototype.addFile = function(file) {
     var _i, _len;
     var iserror = false;
     for (_i = 0, _len = this.files.length; _i < _len; _i++) {
-      if(this.files[_i].name === file.name && this.files[_i].size === file.size){
+      if( (this.files[_i].name === file.name || this.files[_i].name === sanitize(file.name) ) && this.files[_i].size === file.size){
         iserror = true;
-        console.log(iserror);
         if (iserror === true ) { 
         	alert('the file "'+file.name+'" already exists!') 
         };
@@ -60,12 +86,14 @@ Dropzone.prototype.addFile = function(file) {
 
 
 
+
 /*
  * process dropzone for this elemID and this addToFile
  */
 // (function(){
 var params = {
 	selector 		: $('#dropzone_<?php echo($this->strId) ?> input[name="attachfiles[]"]'),
+	selectorCount   : $('#dropzone_<?php echo($this->strId) ?> input[name="<?php echo($this->name); ?>"]'),
    	input 			: {
 		elemID  	: <?php echo($this->strId); ?>,
 		addToFile 	: <?php echo($addToFile); ?>,
@@ -85,8 +113,8 @@ var params = {
 	dictDefaultMessage 		: "Drop files here to upload",
 	dictFallbackMessage 	: "Your browser does not support drag'n'drop file uploads.",
 	dictFallbackText 		: "Please use the fallback form below to upload your files like in the olden days.",
-	// dictFileTooBig 			: "File is too big ({{filesize}}MiB). Max filesize: {{maxFilesize}}MiB.",
-	// dictResponseError 		: "Server responded with {{statusCode}} code.",
+	dictFileTooBig 			: "File is too big ({[{filesize}]}MiB).  Max filesize: {[{maxFilesize}]}MiB.",
+	dictResponseError 		: "Server responded with {[{statusCode}]} code.",
 	dictInvalidFileType 	: "You can't upload files of this type.",
 	dictCancelUpload 		: "Cancel upload",
 	dictCancelUploadConfirmation: "Are you sure you want to cancel this upload?",
@@ -94,6 +122,8 @@ var params = {
 	dictRemoveFileConfirmation: null,
 	dictMaxFilesExceeded 	: "You can not upload any more files.",
 }
+
+
 
 
 Dropzone.autoDiscover = false;
@@ -110,21 +140,23 @@ var myDropzone = new Dropzone("#dropzone_"+params.input.elemID, {
 	addRemoveLinks 	: true,
 	
 	
-	dictDefaultMessage 		: params.dictDefaultMessage,
-	dictFallbackMessage 	: params.dictFallbackMessage,
-	dictFallbackText 		: params.dictFallbackText,
-	// dictFileTooBig 			: params.dictFileTooBig,
-	// dictResponseError 		: params.dictResponseError,
-	dictInvalidFileType 	: params.dictInvalidFileType,
-	dictCancelUpload 		: params.dictCancelUpload,
+	dictDefaultMessage 			: params.dictDefaultMessage,
+	dictFallbackMessage 		: params.dictFallbackMessage,
+	dictFallbackText 			: params.dictFallbackText,
+	dictFileTooBig 				: params.dictFileTooBig,
+	dictResponseError 			: params.dictResponseError,
+	dictInvalidFileType 		: params.dictInvalidFileType,
+	dictCancelUpload 			: params.dictCancelUpload,
 	dictCancelUploadConfirmation: params.dictCancelUploadConfirmation,
-	dictRemoveFile 			: params.dictRemoveFile,
-	dictRemoveFileConfirmation: params.dictRemoveFileConfirmation,
-	dictMaxFilesExceeded 	: params.dictMaxFilesExceeded,
+	dictRemoveFile 				: params.dictRemoveFile,
+	dictRemoveFileConfirmation 	: params.dictRemoveFileConfirmation,
+	dictMaxFilesExceeded 		: params.dictMaxFilesExceeded,
 
 
 	init: function() {
 		var myDropzone = this;
+
+
 
 		/*
 		 * Events
@@ -133,14 +165,17 @@ var myDropzone = new Dropzone("#dropzone_"+params.input.elemID, {
 			// add elemid and addtofile to transferred formData.
 			formData.append("addtofile", params.input.addToFile);
 			formData.append("elemid", params.input.elemID);
+			formData.append("rename", sanitize(file.name) );
 		});
 
-		myDropzone.on("success", function(file, serverFileName) {
-		 	params.input.files.push(file.name)
+		myDropzone.on("success", function(file, response) {
+		 	params.input.files.push( sanitize(file.name) )
 		 	params.selector.val( JSON.stringify(params.input) )
-		 	
+		 	params.selectorCount.val( updateSelectorCount )
+
 		 	console.log('Event: success:')
 		 	console.log( params.input )
+		 	console.log( response )
 		});
 
 		myDropzone.on("removedfile", function(file) {
@@ -149,17 +184,18 @@ var myDropzone = new Dropzone("#dropzone_"+params.input.elemID, {
 		  	var dataDelete = {
 		  		elemID 		: params.input.elemID,
 			  	addToFile 	: params.input.addToFile,
-			  	name 		: file.name
+			  	name 		: sanitize(file.name)
 		  	};
 
 		  	// update server
-		  	$.get('system/modules/multifileupload/assets/upload.php?addtofile='+params.input.addToFile+'&elemid='+params.input.elemID+'&del='+file.name)
+		  	$.get('system/modules/multifileupload/assets/upload.php?addtofile='+params.input.addToFile+'&elemid='+params.input.elemID+'&del='+sanitize(file.name) ) 
 				.done(function( data ) {
 					// remove from params.inputfield
 					params.input.files = params.input.files.filter(function (el) {
 					    return (el != dataDelete.name );
 					});
 					params.selector.val( JSON.stringify(params.input) )
+					params.selectorCount.val( updateSelectorCount )
 
 					console.log( 'Event: removedfile -> POST Data')
 					console.log( dataDelete )
@@ -203,6 +239,7 @@ var myDropzone = new Dropzone("#dropzone_"+params.input.elemID, {
 
 				// build data for params.input field
 				params.input.files.push(file.name)
+				params.selectorCount.val( updateSelectorCount )
 		 		
             });
 
