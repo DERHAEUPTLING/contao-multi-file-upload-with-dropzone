@@ -28,7 +28,7 @@
 $GLOBALS['TL_LANG']['FFL']['multifileupload']    = array('Datei-Upload DropZone', '');
 $GLOBALS['TL_LANG']['tl_form_field']['maxuploadsize'] = array('Upload-Gr&ouml;&szlig;e','Bitte geben Sie hier die maximal erlaubte Gr&ouml;&szlig;e in MB der Dateien an. "0" bedeutet, dass die Gr&ouml;&szlig;e nicht begrenz ist.');
 $GLOBALS['TL_LANG']['tl_form_field']['maxuploadcount'] = array('Upload-Anzahl','Bitte geben Sie hier die maximal erlaubte Anzahl der Dateien an. "0" bedeutet, dass die Anzahl nicht begrenzt ist.');
-$GLOBALS['TL_LANG']['tl_form_field']['multiuploadfolder'] = array('Speicherort','Bitte geben Sie hier an, wo die Dateien abgelegt werden sollen.');
+$GLOBALS['TL_LANG']['tl_form_field']['multiuploadFolder'] = array('Speicherort','Bitte geben Sie hier an, wo die Dateien abgelegt werden sollen.');
 $GLOBALS['TL_LANG']['tl_form_field']['sendcase'] = array('Dateiversand','Bitte geben Sie hier an, ob die Dateien als Anhang versandt oder als Link verchickt werden sollen.');
 $GLOBALS['TL_LANG']['tl_form_field']['attach'] = array('Dateien anh&auml;ngen','');
 $GLOBALS['TL_LANG']['tl_form_field']['link'] = array('Dateien verlinken','');
@@ -37,7 +37,7 @@ $GLOBALS['TL_LANG']['tl_form_field']['link'] = array('Dateien verlinken','');
 /**
  * Frontend
  */
-$GLOBALS['TL_LANG']['multifileupload']['dictDefaultMessage'] = "Zum hochladen Dateien hier ablegen oder klicken.";
+$GLOBALS['TL_LANG']['multifileupload']['dictDefaultMessage'] = "Dateien hier ablegen oder klicken.";
 $GLOBALS['TL_LANG']['multifileupload']['dictFallbackMessage'] = "Ihr Browser unterstützt kein Upload per Drag'n'drop.";
 $GLOBALS['TL_LANG']['multifileupload']['dictFallbackText'] = "Bitte benutzten Sie das Fallback Formular um Ihre Dateien wie in den guten alten Tagen hochzuladen.";
 $GLOBALS['TL_LANG']['multifileupload']['dictFileTooBig'] = "Die Datei ist zu groß ({[{filesize}]}MiB).  Max Dateigröße: {[{maxFilesize}]}MiB.";

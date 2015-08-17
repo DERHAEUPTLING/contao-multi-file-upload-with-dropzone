@@ -28,7 +28,7 @@
 $GLOBALS['TL_LANG']['FFL']['multifileupload']    = array('File-Upload with DropZone', '');
 $GLOBALS['TL_LANG']['tl_form_field']['maxuploadsize'] = array('file size','Please enter the maximally allowed filesize in MB. "0" means, that the filesize is not limited.');
 $GLOBALS['TL_LANG']['tl_form_field']['maxuploadcount'] = array('file count','Please enter the maximally allowed count of files. "0" means, that the amount is not limited.');
-$GLOBALS['TL_LANG']['tl_form_field']['multiuploadfolder'] = array('location','Please enter the location where files shall be saved.');
+$GLOBALS['TL_LANG']['tl_form_field']['multiuploadFolder'] = array('file save location','Please enter the location where files shall be saved.');
 $GLOBALS['TL_LANG']['tl_form_field']['sendcase'] = array('file forewarding','Please enter if the uploaded files shall be forwareded as attachement or as links.');
 $GLOBALS['TL_LANG']['tl_form_field']['attach'] = array('attach files','');
 $GLOBALS['TL_LANG']['tl_form_field']['link'] = array('link files','');
