@@ -1,6 +1,5 @@
 # Contao multi file upload with DropZone
-Contao formular content element "File-Upload with DropZone" based on [Dropzonejs](http://www.dropzonejs.com/)
-
+Contao formular content element "File-Upload with DropZone" based on <a href="http://www.dropzonejs.com/" target="_blank">Dropzonejs</a>
 
 ## features
 * size, count and type of files are configurable
