@@ -6,11 +6,16 @@ $addToFile = $this->generate();
 ?>
 
 <div class="widget widget-dropzone <?php echo $this->cssClass?> <?php echo $this->error; ?>">
-	<label for="dropzone_<?php echo($this->strId); ?>">
+	<label for="dropzone_<?php echo($this->strId); ?>" class="<?php echo $this->error; ?>">
 		<?php echo($this->label); ?>
-		<?php if ($this->mandatory) { ?><span class="mandatory">*</span><?php } ?>
+		<?php if ($this->mandatory): ?>
+			<span class="mandatory">*</span>
+		<?php endif ?>
 	</label>
-	<div type="text" id="dropzone_<?php echo($this->strId); ?>" class="dropzone">
+	<?php if ($this->error): ?>
+		<p class="error">Bitte füllen Sie das Feld "E-Mail" aus!</p>
+	<?php endif ?>
+	<div type="text" id="dropzone_<?php echo($this->strId); ?>" class="dropzone <?php echo $this->error; ?>">
 	    <input type="hidden" name="attachfiles[]" value="">
 	    <input type="hidden" name="<?php echo($this->name); ?>">
 	    <input type="hidden" name="myid[<?php echo($this->strId); ?>]" value="<?php echo($addToFile); ?>">
