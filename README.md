@@ -1,5 +1,5 @@
 # Contao multi file upload with DropZone
-Contao formular content element "File-Upload with DropZone" based on [Dropzonejs](ttp://www.dropzonejs.com/)
+Contao formular content element "File-Upload with DropZone" based on [Dropzonejs](http://www.dropzonejs.com/)
 
 
 ## features
