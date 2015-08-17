@@ -6,9 +6,9 @@
  * Copyright (c) 2005-2015 Leo Feyer
  *
  * @package   multiFileUploadWithDropZone
- * @author    Frank Thonak
+ * @author    Martin Schwenzer & Frank Thonak
  * @license   GNU
- * @copyright Frank Thonak (www.thomkit.de)
+ * @copyright Martin Schwenzer (derhaeuptling.com) & Frank Thonak (www.thomkit.de)
  */
 
 /**
