@@ -8,5 +8,5 @@ Contao formular content element "File-Upload with DropZone" based on <a href="ht
  *  deleted after 3h when form got not submittet
  *  or moved to the files save location when the form is submittet successfully 
 * uploaded files can be send or linked by email
-* languages DE, EN
+* multi language support
 * filenames get sanatized automatically to prevent conflicts on server / on sending email
