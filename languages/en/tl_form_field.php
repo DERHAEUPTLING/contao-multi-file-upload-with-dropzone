@@ -34,5 +34,21 @@ $GLOBALS['TL_LANG']['tl_form_field']['attach'] = array('attach files','');
 $GLOBALS['TL_LANG']['tl_form_field']['link'] = array('link files','');
 
 
+/**
+ * Frontend
+ */
+$GLOBALS['TL_LANG']['multifileupload']['dictDefaultMessage'] = "Drop files here to upload.";
+$GLOBALS['TL_LANG']['multifileupload']['dictFallbackMessage'] = "Your browser does not support drag'n'drop file uploads.";
+$GLOBALS['TL_LANG']['multifileupload']['dictFallbackText'] = "Please use the fallback form below to upload your files like in the olden days.";
+$GLOBALS['TL_LANG']['multifileupload']['dictFileTooBig'] = "File is too big ({[{filesize}]}MiB).  Max filesize: {[{maxFilesize}]}MiB.";
+$GLOBALS['TL_LANG']['multifileupload']['dictResponseError'] = "Server responded with {[{statusCode}]} code.";
+$GLOBALS['TL_LANG']['multifileupload']['dictInvalidFileType'] = "You can't upload files of this type.";
+$GLOBALS['TL_LANG']['multifileupload']['dictCancelUpload'] = "Cancel upload";
+$GLOBALS['TL_LANG']['multifileupload']['dictCancelUploadConfirmation'] = "Are you sure you want to cancel this upload?";
+$GLOBALS['TL_LANG']['multifileupload']['dictRemoveFile'] = "Remove file";
+$GLOBALS['TL_LANG']['multifileupload']['dictRemoveFileConfirmation'] = "";
+$GLOBALS['TL_LANG']['multifileupload']['dictMaxFilesExceeded'] = "You can not upload any more files.";
+
+
 
 

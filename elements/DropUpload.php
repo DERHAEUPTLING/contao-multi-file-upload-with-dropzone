@@ -33,13 +33,47 @@ class DropUpload extends \Widget
 	public function generate()
 	{
 		global $objPage;
+
+		$checkError = false;
 		$this->addToFile = '';
 		$this->import('Database');
 		$postVal = $this->Input->post('myid');
 		$getVal = $this->Input->get('myid');
 		if($postVal[$this->strId] != "") $this->addToFile = $postVal[$this->strId];
 		if($getVal[$this->strId] != "") $this->addToFile = $getVal[$this->strId];
+		if($this->addToFile != '' && $this->mandatory) $checkError = true;
 		if($this->addToFile == '') $this->addToFile = $this->Database->prepare("INSERT INTO tl_multiuploadfilecounter SET title = 'do'")->execute()->insertId;
+
+		$this->error = '';
+		if($checkError)
+		{
+			$this->error = ' error ';
+			$fileData = $this->Input->get('attachfiles');
+			if($this->Input->post('attachfiles') != '') $fileData = $this->Input->post('attachfiles');
+			foreach($fileData as $files)
+			{
+				$obj = json_decode($files);
+				if(count($obj->files) > 0 && $obj->elemID == $this->strId) $this->error = '';
+			}
+		}
+
+		$this->loadLanguageFile('tl_form_field');
+
+		$this->dictDefaultMessage = $GLOBALS['TL_LANG']['multifileupload']['dictDefaultMessage'];
+		$this->dictFallbackMessage = $GLOBALS['TL_LANG']['multifileupload']['dictFallbackMessage'];
+		$this->dictFallbackText = $GLOBALS['TL_LANG']['multifileupload']['dictFallbackText'];
+		$this->dictFileTooBig = $GLOBALS['TL_LANG']['multifileupload']['dictFileTooBig'];
+		$this->dictResponseError = $GLOBALS['TL_LANG']['multifileupload']['dictResponseError'];
+		$this->dictInvalidFileType = $GLOBALS['TL_LANG']['multifileupload']['dictInvalidFileType'];
+		$this->dictCancelUpload = $GLOBALS['TL_LANG']['multifileupload']['dictCancelUpload'];
+		$this->dictCancelUploadConfirmation = $GLOBALS['TL_LANG']['multifileupload']['dictCancelUploadConfirmation'];
+		$this->dictRemoveFile = $GLOBALS['TL_LANG']['multifileupload']['dictRemoveFile'];
+		$this->dictRemoveFileConfirmation = $GLOBALS['TL_LANG']['multifileupload']['dictRemoveFileConfirmation'];
+		$this->dictMaxFilesExceeded = $GLOBALS['TL_LANG']['multifileupload']['dictMaxFilesExceeded'];
+
+
 		return $this->addToFile;
 	}
+
+
 }

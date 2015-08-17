@@ -6,15 +6,15 @@
  * Copyright (c) 2005-2015 Leo Feyer
  *
  * @package   multiFileUploadWithDropZone
- * @author    Martin Schwenzer & Frank Thonak
+ * @author    Frank Thonak
  * @license   GNU
- * @copyright Martin Schwenzer (www.derhaeuptling.com) & Frank Thonak (www.thomkit.de)
+ * @copyright Frank Thonak (www.thomkit.de)
  */
 
 /**
  * Form fields
  */
-$GLOBALS['TL_FFL']['multifileupload'] = 'multifileupload\\DropUpload';
 
+array_insert($GLOBALS['TL_FFL'], array_search('upload', array_keys($GLOBALS['TL_FFL'])) + 1, array('multifileupload' => 'multifileupload\\DropUpload'));
 
 $GLOBALS['TL_HOOKS']['prepareFormData'][] = array('thomkit\multifileupload\fileMoveAndAppend', 'moveAppend');

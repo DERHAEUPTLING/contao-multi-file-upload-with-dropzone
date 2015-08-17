@@ -1,6 +1,6 @@
 <?php
 
-$GLOBALS['TL_DCA']['tl_form_field']['palettes']['multifileupload'] = '{type_legend},type,name,label;{fconfig_legend},maxuploadsize,maxuploadcount,extensions,multiuploadFolder,sendcase;';
+$GLOBALS['TL_DCA']['tl_form_field']['palettes']['multifileupload'] = '{type_legend},type,name,label;{fconfig_legend},mandatory,maxuploadsize,maxuploadcount,extensions,multiuploadFolder,sendcase;';
 
 $GLOBALS['TL_DCA']['tl_form_field']['fields']['maxuploadsize'] = array
 				(

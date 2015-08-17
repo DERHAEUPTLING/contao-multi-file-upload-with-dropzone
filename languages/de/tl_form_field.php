@@ -23,7 +23,7 @@
 
 
 /**
- * Form fields
+ * Backend Form fields
  */
 $GLOBALS['TL_LANG']['FFL']['multifileupload']    = array('Datei-Upload DropZone', '');
 $GLOBALS['TL_LANG']['tl_form_field']['maxuploadsize'] = array('Upload-Gr&ouml;&szlig;e','Bitte geben Sie hier die maximal erlaubte Gr&ouml;&szlig;e in MB der Dateien an. "0" bedeutet, dass die Gr&ouml;&szlig;e nicht begrenz ist.');
@@ -34,5 +34,17 @@ $GLOBALS['TL_LANG']['tl_form_field']['attach'] = array('Dateien anh&auml;ngen','
 $GLOBALS['TL_LANG']['tl_form_field']['link'] = array('Dateien verlinken','');
 
 
-
-
+/**
+ * Frontend
+ */
+$GLOBALS['TL_LANG']['multifileupload']['dictDefaultMessage'] = "Zum hochladen Dateien hier ablegen oder klicken.";
+$GLOBALS['TL_LANG']['multifileupload']['dictFallbackMessage'] = "Ihr Browser unterstützt kein Upload per Drag'n'drop.";
+$GLOBALS['TL_LANG']['multifileupload']['dictFallbackText'] = "Bitte benutzten Sie das Fallback Formular um Ihre Dateien wie in den guten alten Tagen hochzuladen.";
+$GLOBALS['TL_LANG']['multifileupload']['dictFileTooBig'] = "Die Datei ist zu groß ({[{filesize}]}MiB).  Max Dateigröße: {[{maxFilesize}]}MiB.";
+$GLOBALS['TL_LANG']['multifileupload']['dictResponseError'] = "Server antwortet mit dem StausCode: {[{statusCode}]} .";
+$GLOBALS['TL_LANG']['multifileupload']['dictInvalidFileType'] = "Sie können Dateien dieses Dateityps nicht hochladen.";
+$GLOBALS['TL_LANG']['multifileupload']['dictCancelUpload'] = "Upload abbrechen";
+$GLOBALS['TL_LANG']['multifileupload']['dictCancelUploadConfirmation'] = "Sind Sie sicher, dass sie diesen Upload abbrechen wollen?";
+$GLOBALS['TL_LANG']['multifileupload']['dictRemoveFile'] = "Datei löschen";
+$GLOBALS['TL_LANG']['multifileupload']['dictRemoveFileConfirmation'] = "";
+$GLOBALS['TL_LANG']['multifileupload']['dictMaxFilesExceeded'] = "Die maximale Anzahl hochladbarer Dateien ist erreicht.";
