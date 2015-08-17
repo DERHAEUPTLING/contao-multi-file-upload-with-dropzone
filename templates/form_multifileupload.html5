@@ -100,15 +100,15 @@ var params = {
 	/*
 	 * dropzonejs options
 	 */
-	url 					: 'system/modules/multifileupload/assets/upload.php',
+	url						: 'system/modules/multifileupload/assets/upload.php',
 	acceptedFiles 			: '.<?php echo(str_replace(',',',.',$this->extensions)); ?>',
 	autoProcessQueue 		: true,
 	uploadMultiple 			: false,
 	maxFiles 				: <?php echo( $this->maxuploadcount != 0 ? $this->maxuploadcount : 'null' ) ?>,
 	maxFilesize				: <?php echo( $this->maxuploadsize != 0 ? $this->maxuploadsize : '256' ) ?>,
 
-	dictDefaultMessage 			: "<?php echo $this->dictDefaultMessage; ?>",
-	dictFallbackMessage 		: "<?php echo $this->dictFallbackMessage; ?>",
+	dictDefaultMessage			: "<?php echo $this->dictDefaultMessage; ?>",
+	dictFallbackMessage			: "<?php echo $this->dictFallbackMessage; ?>",
 	dictFallbackText 			: "<?php echo $this->dictFallbackText; ?>",
 	dictFileTooBig 				: "<?php echo $this->dictFileTooBig; ?>",
 	dictResponseError 			: "<?php echo $this->dictResponseError; ?>",
@@ -170,9 +170,8 @@ var myDropzone = new Dropzone("#dropzone_"+params.input.elemID, {
 		 	params.selector.val( JSON.stringify(params.input) )
 		 	params.selectorCount.val( updateSelectorCount )
 
-		 	console.log('Event: success:')
+		 	console.log('dropzonejs => Event: success:')
 		 	console.log( params.input )
-		 	console.log( response )
 		});
 
 		myDropzone.on("removedfile", function(file) {
@@ -194,7 +193,7 @@ var myDropzone = new Dropzone("#dropzone_"+params.input.elemID, {
 					params.selector.val( JSON.stringify(params.input) )
 					params.selectorCount.val( updateSelectorCount )
 
-					console.log( 'Event: removedfile -> POST Data')
+					console.log( 'dropzonejs => Event: removedfile -> POST Data')
 					console.log( dataDelete )
 				});
 		});
@@ -204,7 +203,7 @@ var myDropzone = new Dropzone("#dropzone_"+params.input.elemID, {
 		 * load already existing files
 		 */
         $.get('system/modules/multifileupload/assets/upload.php?addtofile='+params.input.addToFile+'&elemid='+params.input.elemID, function(data) {
-        	console.log('get existing files:')
+        	console.log('dropzonejs => get existing files:')
         	console.log(data)
 
             $.each(data, function(key,file){
