@@ -5,28 +5,20 @@
 $addToFile = $this->generate();
 ?>
 
-<div class="widget widget-dropzone <?php echo $this->cssClass?>">
+<div class="widget widget-dropzone <?php echo $this->cssClass?> <?php echo $this->error; ?>">
 	<label for="dropzone_<?php echo($this->strId); ?>">
 		<?php echo($this->label); ?>
 		<?php if ($this->mandatory) { ?><span class="mandatory">*</span><?php } ?>
-	</label><?php echo $this->error; ?>
-	<!-- <div class="dropzonelabel" id="dropzonelabel_<?php echo($this->strId); ?>">
-		<input type="text" name="<?php echo($this->name); ?>">
-	</div> -->
+	</label>
 	<div type="text" id="dropzone_<?php echo($this->strId); ?>" class="dropzone">
 	    <input type="hidden" name="attachfiles[]" value="">
 	    <input type="hidden" name="<?php echo($this->name); ?>">
 	    <input type="hidden" name="myid[<?php echo($this->strId); ?>]" value="<?php echo($addToFile); ?>">
-
 	</div>
 </div>
 
-<style> 
-	/*#dropzonelabel_<?php echo($this->strId); ?>::after {content: '<?php echo($this->label); ?>'} */
-</style>	
+	
 <script type="text/javascript">
-
-
 /*
  * helper functions
  */
