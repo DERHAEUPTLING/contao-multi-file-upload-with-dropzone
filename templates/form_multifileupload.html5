@@ -8,8 +8,13 @@ $addToFile = $this->generate();
 <div class="widget widget-dropzone <?php echo $this->cssClass?>">
 	<label for="dropzone_<?php echo($this->strId); ?>">
 		<?php echo($this->label); ?>
+<<<<<<< HEAD
 		<?php if ($this->mandatory) { ?><span class="mandatory">*</span><?php } ?>
 	</label><?php echo $this->error; ?>
+=======
+		<?php if ($this->mandatory): ?><span class="mandatory">*</span><?php endif; ?>
+	</label>
+>>>>>>> 786d1198cf2ea2b1f6719589e9ef45e440e04459
 	<!-- <div class="dropzonelabel" id="dropzonelabel_<?php echo($this->strId); ?>">
 		<input type="text" name="<?php echo($this->name); ?>">
 	</div> -->
@@ -110,6 +115,7 @@ var params = {
 	maxFiles 				: <?php echo( $this->maxuploadcount != 0 ? $this->maxuploadcount : 'null' ) ?>,
 	maxFilesize				: <?php echo( $this->maxuploadsize != 0 ? $this->maxuploadsize : '256' ) ?>,
 
+<<<<<<< HEAD
 	dictDefaultMessage 			: "<?php echo $this->dictDefaultMessage; ?>",
 	dictFallbackMessage 		: "<?php echo $this->dictFallbackMessage; ?>",
 	dictFallbackText 			: "<?php echo $this->dictFallbackText; ?>",
@@ -121,6 +127,19 @@ var params = {
 	dictRemoveFile 				: "<?php echo $this->dictRemoveFile; ?>",
 	dictRemoveFileConfirmation 	: "<?php echo $this->dictRemoveFileConfirmation; ?>",
 	dictMaxFilesExceeded 		: "<?php echo $this->dictMaxFilesExceeded; ?>",
+=======
+	dictDefaultMessage 		: "Drop files here to upload",
+	dictFallbackMessage 	: "Your browser does not support drag'n'drop file uploads.",
+	dictFallbackText 		: "Please use the fallback form below to upload your files like in the olden days.",
+	dictFileTooBig 			: "File is too big ({[{filesize}]}MiB).  Max filesize: {[{maxFilesize}]}MiB.",
+	dictResponseError 		: "Server responded with {[{statusCode}]} code.",
+	dictInvalidFileType 	: "You can't upload files of this type.",
+	dictCancelUpload 		: "Cancel upload",
+	dictCancelUploadConfirmation: "Are you sure you want to cancel this upload?",
+	dictRemoveFile 			: "Remove file",
+	dictRemoveFileConfirmation: null,
+	dictMaxFilesExceeded 	: "You can not upload any more files.",
+>>>>>>> 786d1198cf2ea2b1f6719589e9ef45e440e04459
 }
 
 
