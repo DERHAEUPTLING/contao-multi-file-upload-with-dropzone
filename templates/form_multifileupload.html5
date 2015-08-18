@@ -194,11 +194,6 @@ var myDropzone = new Dropzone("#dropzone_"+params.input.elemID, {
 					params.selector.val( JSON.stringify(params.input) )
 					params.selectorCount.val( updateSelectorCount )
 
-					// if ( myDropzone.options.maxFiles != null && myDropzone.options.maxFiles < myDropzone.options.maxFilesOnLoad ) {
-					// 	myDropzone.options.maxFiles = myDropzone.options.maxFiles + 1;   
-					// };
-
-
 					console.log( 'dropzonejs => Event: removedfile -> POST Data')
 					console.log( dataDelete )
 				});
