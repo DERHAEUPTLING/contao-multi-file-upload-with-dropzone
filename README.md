@@ -14,3 +14,6 @@ Send uploaded files or links to it by mail.
 * uploaded files can be send or linked by email
 * multi language support
 * filenames get sanitized automatically to prevent conflicts on server / on sending email
+
+## Dependencies
+jQuery
