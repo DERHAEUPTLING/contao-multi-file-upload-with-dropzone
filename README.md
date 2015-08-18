@@ -15,5 +15,5 @@ Send uploaded files or links to it by mail.
 * multi language support
 * filenames get sanitized automatically to prevent conflicts on server / on sending email
 
-## Dependencies
+## dependencies
 jQuery
