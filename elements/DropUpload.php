@@ -70,7 +70,7 @@ class DropUpload extends \Widget
 		$this->dictRemoveFile = $GLOBALS['TL_LANG']['multifileupload']['dictRemoveFile'];
 		$this->dictRemoveFileConfirmation = $GLOBALS['TL_LANG']['multifileupload']['dictRemoveFileConfirmation'];
 		$this->dictMaxFilesExceeded = $GLOBALS['TL_LANG']['multifileupload']['dictMaxFilesExceeded'];
-
+		$this->dictDuplicate = $GLOBALS['TL_LANG']['multifileupload']['dictDuplicate'];
 
 		return $this->addToFile;
 	}

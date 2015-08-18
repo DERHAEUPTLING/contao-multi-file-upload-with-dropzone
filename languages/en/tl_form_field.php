@@ -48,6 +48,7 @@ $GLOBALS['TL_LANG']['multifileupload']['dictCancelUploadConfirmation'] = "Are yo
 $GLOBALS['TL_LANG']['multifileupload']['dictRemoveFile'] = "Remove file";
 $GLOBALS['TL_LANG']['multifileupload']['dictRemoveFileConfirmation'] = "";
 $GLOBALS['TL_LANG']['multifileupload']['dictMaxFilesExceeded'] = "You can not upload any more files.";
+$GLOBALS['TL_LANG']['multifileupload']['dictDuplicate'] = "A file with this name already exists.";
 
 
 

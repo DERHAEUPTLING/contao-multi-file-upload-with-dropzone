@@ -48,3 +48,4 @@ $GLOBALS['TL_LANG']['multifileupload']['dictCancelUploadConfirmation'] = "Sind S
 $GLOBALS['TL_LANG']['multifileupload']['dictRemoveFile'] = "Datei löschen";
 $GLOBALS['TL_LANG']['multifileupload']['dictRemoveFileConfirmation'] = "";
 $GLOBALS['TL_LANG']['multifileupload']['dictMaxFilesExceeded'] = "Die maximale Anzahl hochladbarer Dateien ist erreicht.";
+$GLOBALS['TL_LANG']['multifileupload']['dictDuplicate'] = "Eine Datei mit diesem Namen ist bereits vorhanden.";
