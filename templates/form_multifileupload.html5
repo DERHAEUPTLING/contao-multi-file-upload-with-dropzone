@@ -131,6 +131,7 @@ var myDropzone = new Dropzone("#dropzone_"+params.input.elemID, {
    	url 			: params.url,
 	acceptedFiles 	: params.acceptedFiles,
 	maxFiles 		: params.maxFiles,
+	maxFilesOnLoad	: params.maxFiles,
 	maxFilesize		: params.maxFilesize,
 	autoProcessQueue: true,
 	uploadMultiple 	: false,
@@ -193,6 +194,11 @@ var myDropzone = new Dropzone("#dropzone_"+params.input.elemID, {
 					params.selector.val( JSON.stringify(params.input) )
 					params.selectorCount.val( updateSelectorCount )
 
+					// if ( myDropzone.options.maxFiles != null && myDropzone.options.maxFiles < myDropzone.options.maxFilesOnLoad ) {
+					// 	myDropzone.options.maxFiles = myDropzone.options.maxFiles + 1;   
+					// };
+
+
 					console.log( 'dropzonejs => Event: removedfile -> POST Data')
 					console.log( dataDelete )
 				});
@@ -210,28 +216,22 @@ var myDropzone = new Dropzone("#dropzone_"+params.input.elemID, {
                 var mockFile = { 
                 	name: file.name, 
                 	size: file.size,
+                	accepted: true,
                 	path: file.path  
                 };
 
-                // get files and thumbnails
+                // get files 
+                myDropzone.files.push(mockFile);
                 myDropzone.emit("addedfile", mockFile);
+
+                // get thumbnails
 				myDropzone.createThumbnailFromUrl(
 					mockFile, 
-					mockFile.path + '/' + file.name
+					mockFile.path + '/' + mockFile.name
 				);
 
                 // Make sure that there is no progress bar, etc...
 				myDropzone.emit("complete", mockFile);
-
-                // If you use the maxFiles option, make sure you adjust it to the
-				// correct amount:
-				if ( myDropzone.options.maxFiles != null ) {
-					myDropzone.options.maxFiles = myDropzone.options.maxFiles - 1;   
-				};
-
-
-				// populate myDropzone.files, so that duplicate check can work
-				myDropzone.files.push(mockFile)
 
 				// build data for params.input field
 				params.input.files.push(file.name)
