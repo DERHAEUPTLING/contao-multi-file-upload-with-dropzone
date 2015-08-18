@@ -59,18 +59,19 @@ class DropUpload extends \Widget
 
 		$this->loadLanguageFile('tl_form_field');
 
-		$this->dictDefaultMessage = $GLOBALS['TL_LANG']['multifileupload']['dictDefaultMessage'];
-		$this->dictFallbackMessage = $GLOBALS['TL_LANG']['multifileupload']['dictFallbackMessage'];
-		$this->dictFallbackText = $GLOBALS['TL_LANG']['multifileupload']['dictFallbackText'];
-		$this->dictFileTooBig = $GLOBALS['TL_LANG']['multifileupload']['dictFileTooBig'];
-		$this->dictResponseError = $GLOBALS['TL_LANG']['multifileupload']['dictResponseError'];
-		$this->dictInvalidFileType = $GLOBALS['TL_LANG']['multifileupload']['dictInvalidFileType'];
-		$this->dictCancelUpload = $GLOBALS['TL_LANG']['multifileupload']['dictCancelUpload'];
+		$this->dictDefaultMessage  	= $GLOBALS['TL_LANG']['multifileupload']['dictDefaultMessage'];
+		$this->dictFallbackMessage 	= $GLOBALS['TL_LANG']['multifileupload']['dictFallbackMessage'];
+		$this->dictFallbackText 	= $GLOBALS['TL_LANG']['multifileupload']['dictFallbackText'];
+		$this->dictFileTooBig 		= $GLOBALS['TL_LANG']['multifileupload']['dictFileTooBig'];
+		$this->dictResponseError 	= $GLOBALS['TL_LANG']['multifileupload']['dictResponseError'];
+		$this->dictInvalidFileType 	= $GLOBALS['TL_LANG']['multifileupload']['dictInvalidFileType'];
+		$this->dictCancelUpload 	= $GLOBALS['TL_LANG']['multifileupload']['dictCancelUpload'];
 		$this->dictCancelUploadConfirmation = $GLOBALS['TL_LANG']['multifileupload']['dictCancelUploadConfirmation'];
-		$this->dictRemoveFile = $GLOBALS['TL_LANG']['multifileupload']['dictRemoveFile'];
+		$this->dictRemoveFile 		= $GLOBALS['TL_LANG']['multifileupload']['dictRemoveFile'];
 		$this->dictRemoveFileConfirmation = $GLOBALS['TL_LANG']['multifileupload']['dictRemoveFileConfirmation'];
 		$this->dictMaxFilesExceeded = $GLOBALS['TL_LANG']['multifileupload']['dictMaxFilesExceeded'];
-		$this->dictDuplicate = $GLOBALS['TL_LANG']['multifileupload']['dictDuplicate'];
+		$this->dictDuplicate 		= $GLOBALS['TL_LANG']['multifileupload']['dictDuplicate'];
+		$this->dictMandatoryText 	= $GLOBALS['TL_LANG']['multifileupload']['dictMandatoryText'];
 
 		return $this->addToFile;
 	}

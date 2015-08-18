@@ -13,7 +13,7 @@ $addToFile = $this->generate();
 		<?php endif ?>
 	</label>
 	<?php if ($this->error): ?>
-		<p class="error">Bitte füllen Sie das Feld "E-Mail" aus!</p>
+		<p class="error"><?php echo $this->dictMandatoryText; ?></p>
 	<?php endif ?>
 	<div type="text" id="dropzone_<?php echo($this->strId); ?>" class="dropzone <?php echo $this->error; ?>">
 	    <input type="hidden" name="attachfiles[]" value="">
