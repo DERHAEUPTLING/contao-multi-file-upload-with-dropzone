@@ -75,7 +75,7 @@ class fileMoveAndAppend extends \System
 							{
 								@unlink(TL_ROOT . '/' . $uploadFolder .'/tmp/'.$addToFile.'/' . $curFile);
 
-								if($myElemData->sendcase != 'link')
+								if(in_array($myElemData->sendcase,array('attach','all')))
 								{
 								// Dateien der Mail anhaengen
 									$_SESSION['FILES'][$curFile] = array
@@ -85,15 +85,20 @@ class fileMoveAndAppend extends \System
 										'tmp_name' =>  TL_ROOT . '/' . $uploadFolder.'/'.$addToFile . '/' . $curFile,
 										'uploaded' => false
 									);
-									unset($arrSubmittedArray[$myElemData->name]);
-									unset($arrLabelsArray[$myElemData->name]);
-								} else
+								}
+								if(in_array($myElemData->sendcase,array('link','all')))
 								{
 								// Dateien per Link einbinden
 									if (file_exists(TL_ROOT . '/' . $uploadFolder.'/'.$addToFile . '/' . $curFile))
 									{
 										$arrSubmittedArray[$myElemData->name] .= "\nhttp://" . $_SERVER['SERVER_NAME'] . '/' . $uploadFolder.'/'.$addToFile . '/' . $curFile;
 									}
+								}
+								if($myElemData->sendcase == 'attach')
+								{
+								// Datei-Verlinkung loeschen
+									unset($arrSubmittedArray[$myElemData->name]);
+									unset($arrLabelsArray[$myElemData->name]);
 								}
 							}
 						}

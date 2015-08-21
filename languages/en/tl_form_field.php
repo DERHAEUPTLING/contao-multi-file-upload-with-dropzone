@@ -32,6 +32,7 @@ $GLOBALS['TL_LANG']['tl_form_field']['multiuploadFolder'] = array('file save loc
 $GLOBALS['TL_LANG']['tl_form_field']['sendcase'] = array('file forewarding','Please enter if the uploaded files shall be forwareded as attachement or as links.');
 $GLOBALS['TL_LANG']['tl_form_field']['attach'] = array('attach files','');
 $GLOBALS['TL_LANG']['tl_form_field']['link'] = array('link files','');
+$GLOBALS['TL_LANG']['tl_form_field']['all'] = array('attach and link files','');
 
 
 /**

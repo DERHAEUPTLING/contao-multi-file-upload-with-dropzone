@@ -32,6 +32,7 @@ $GLOBALS['TL_LANG']['tl_form_field']['multiuploadFolder'] = array('Speicherort',
 $GLOBALS['TL_LANG']['tl_form_field']['sendcase'] = array('Dateiversand','Bitte geben Sie hier an, ob die Dateien als Anhang versandt oder als Link verchickt werden sollen.');
 $GLOBALS['TL_LANG']['tl_form_field']['attach'] = array('Dateien anh&auml;ngen','');
 $GLOBALS['TL_LANG']['tl_form_field']['link'] = array('Dateien verlinken','');
+$GLOBALS['TL_LANG']['tl_form_field']['all'] = array('Dateien anh&auml;ngen und verlinken','');
 
 
 /**

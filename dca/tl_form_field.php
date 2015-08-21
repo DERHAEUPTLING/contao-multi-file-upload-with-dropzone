@@ -26,7 +26,7 @@ $GLOBALS['TL_DCA']['tl_form_field']['fields']['sendcase'] = array
 					'default'                 => 'attach',
 					'exclude'                 => true,
 					'inputType'               => 'radio',
-					'options'                 => array('attach', 'link'),
+					'options'                 => array('attach', 'link', 'all'),
 					'eval'                    => array('mandatory'=>true),
 					'reference'               => &$GLOBALS['TL_LANG']['tl_form_field'],
 					'sql'                     => "varchar(32) NOT NULL default ''"
