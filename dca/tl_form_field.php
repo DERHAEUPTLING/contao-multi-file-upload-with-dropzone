@@ -1,6 +1,6 @@
 <?php
 
-$GLOBALS['TL_DCA']['tl_form_field']['palettes']['multifileupload'] = '{type_legend},type,name,label;{fconfig_legend},mandatory,maxuploadsize,maxuploadcount,extensions,multiuploadFolder,sendcase;';
+$GLOBALS['TL_DCA']['tl_form_field']['palettes']['multifileupload'] = '{type_legend},type,name,label;{fconfig_legend},mandatory,maxuploadsize,maxuploadcount,extensions,multiuploadFolder,storecase,sendcase;';
 
 $GLOBALS['TL_DCA']['tl_form_field']['fields']['maxuploadsize'] = array
 				(
@@ -27,6 +27,19 @@ $GLOBALS['TL_DCA']['tl_form_field']['fields']['sendcase'] = array
 					'exclude'                 => true,
 					'inputType'               => 'radio',
 					'options'                 => array('attach', 'link', 'all'),
+					'eval'                    => array('mandatory'=>true),
+					'reference'               => &$GLOBALS['TL_LANG']['tl_form_field'],
+					'sql'                     => "varchar(32) NOT NULL default ''"
+				);
+
+
+$GLOBALS['TL_DCA']['tl_form_field']['fields']['storecase'] = array
+				(
+					'label'                   => &$GLOBALS['TL_LANG']['tl_form_field']['storecase'],
+					'default'                 => 'folder',
+					'exclude'                 => true,
+					'inputType'               => 'radio',
+					'options'                 => array('folder', 'file'),
 					'eval'                    => array('mandatory'=>true),
 					'reference'               => &$GLOBALS['TL_LANG']['tl_form_field'],
 					'sql'                     => "varchar(32) NOT NULL default ''"

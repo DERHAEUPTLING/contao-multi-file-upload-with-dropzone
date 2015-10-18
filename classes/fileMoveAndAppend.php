@@ -67,11 +67,20 @@ class fileMoveAndAppend extends \System
 					 	{
 
 					// move files
-							if(!file_exists(TL_ROOT . '/' . $uploadFolder.'/'.$addToFile))
+							if(!file_exists(TL_ROOT . '/' . $uploadFolder.'/'.$addToFile) && $myElemData->storecase != 'file')
 							{
 								new \Folder($uploadFolder.'/'.$addToFile);
 							}
-							if (copy(TL_ROOT . '/' . $uploadFolder .'/tmp/'.$addToFile.'/' . $curFile, TL_ROOT . '/' . $uploadFolder.'/'.$addToFile . '/' . $curFile))
+					// use ID as folder or file prename
+							if($myElemData->storecase == 'file')
+							{
+								$storeFolderPreFile = $addToFile.'_';
+							} else
+							{
+								$storeFolderPreFile = $addToFile.'/';
+							}
+
+							if (copy(TL_ROOT . '/' . $uploadFolder .'/tmp/'.$addToFile.'/' . $curFile, TL_ROOT . '/' . $uploadFolder.'/'.$storeFolderPreFile . $curFile))
 							{
 								@unlink(TL_ROOT . '/' . $uploadFolder .'/tmp/'.$addToFile.'/' . $curFile);
 
@@ -82,16 +91,18 @@ class fileMoveAndAppend extends \System
 									(
 										'name'     => $curFile,
 										'type'     => 'file',
-										'tmp_name' =>  TL_ROOT . '/' . $uploadFolder.'/'.$addToFile . '/' . $curFile,
+										'tmp_name' =>  TL_ROOT . '/' . $uploadFolder.'/'.$storeFolderPreFile . $curFile,
 										'uploaded' => false
 									);
 								}
 								if(in_array($myElemData->sendcase,array('link','all')))
 								{
 								// Dateien per Link einbinden
-									if (file_exists(TL_ROOT . '/' . $uploadFolder.'/'.$addToFile . '/' . $curFile))
+									if (file_exists(TL_ROOT . '/' . $uploadFolder.'/'.$storeFolderPreFile . $curFile))
 									{
-										$arrSubmittedArray[$myElemData->name] .= "\nhttp://" . $_SERVER['SERVER_NAME'] . '/' . $uploadFolder.'/'.$addToFile . '/' . $curFile;
+										$subfolder = str_replace(array('/','\\'),'',$GLOBALS['TL_CONFIG']['websitePath']);
+										if( $subfolder != '') $subfolder.= '/';
+										$arrSubmittedArray[$myElemData->name] .= "\nhttp://" . $_SERVER['SERVER_NAME'] . '/' . $subfolder . $uploadFolder.'/'.$storeFolderPreFile . $curFile;
 									}
 								}
 								if($myElemData->sendcase == 'attach')

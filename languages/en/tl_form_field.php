@@ -26,14 +26,16 @@
  * Form fields
  */
 $GLOBALS['TL_LANG']['FFL']['multifileupload']    = array('File-Upload with DropZone', '');
-$GLOBALS['TL_LANG']['tl_form_field']['maxuploadsize'] = array('file size','Please enter the maximally allowed filesize in MB. "0" means, that the filesize is not limited.');
-$GLOBALS['TL_LANG']['tl_form_field']['maxuploadcount'] = array('file count','Please enter the maximally allowed count of files. "0" means, that the amount is not limited.');
-$GLOBALS['TL_LANG']['tl_form_field']['multiuploadFolder'] = array('file save location','Please enter the location where files shall be saved.');
-$GLOBALS['TL_LANG']['tl_form_field']['sendcase'] = array('file forewarding','Please enter if the uploaded files shall be forwareded as attachement or as links.');
-$GLOBALS['TL_LANG']['tl_form_field']['attach'] = array('attach files','');
-$GLOBALS['TL_LANG']['tl_form_field']['link'] = array('link files','');
-$GLOBALS['TL_LANG']['tl_form_field']['all'] = array('attach and link files','');
-
+$GLOBALS['TL_LANG']['tl_form_field']['maxuploadsize'] = array('File size','Please enter the maximally allowed filesize in MB. "0" means, that the filesize is not limited.');
+$GLOBALS['TL_LANG']['tl_form_field']['maxuploadcount'] = array('File count','Please enter the maximally allowed count of files. "0" means, that the amount is not limited.');
+$GLOBALS['TL_LANG']['tl_form_field']['multiuploadFolder'] = array('File save location','Please enter the location where files shall be saved.');
+$GLOBALS['TL_LANG']['tl_form_field']['sendcase'] = array('File forewarding','Please enter if the uploaded files shall be forwareded as attachement or as links.');
+$GLOBALS['TL_LANG']['tl_form_field']['attach'] = array('Attach files','');
+$GLOBALS['TL_LANG']['tl_form_field']['link'] = array('Link files','');
+$GLOBALS['TL_LANG']['tl_form_field']['all'] = array('Attach and link files','');
+$GLOBALS['TL_LANG']['tl_form_field']['storecase'] = array('Save file options','To prevent conflicts, a new ID is generated for each visitor. <br><br>This ID is used to differentiate the uploaded files and to prevent duplicates. <br><br>After successfull send of the form, files are either copied to a subolder "ID" or copied directly to the choosen folder with new name "ID_filename".');
+$GLOBALS['TL_LANG']['tl_form_field']['folder'] = array('Save to subfolder ID.','');
+$GLOBALS['TL_LANG']['tl_form_field']['file'] = array('Prepend ID to the filename and save without subfolder.','');
 
 /**
  * Frontend
