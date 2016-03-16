@@ -1,0 +1,31 @@
+{
+    "name": "derhaeuptling/contao-multi-file-upload-with-dropzone",
+    "type": "contao-module",
+    "description": "Contao multi file uploader with DropZone for the formular generator.",
+    "keywords": ["contao", "uploader", "upload", "file", "dropzone"],
+    "license": "LGPL",
+    "authors": [
+        {
+            "name": "derhaeuptling",
+            "homepage": "https://derhaeuptling.com/"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "contao/core-bundle": "~3.5 || ~4.1",
+        "contao-community-alliance/composer-plugin": "~2.4 || ~3.0"
+    },
+    "autoload": {
+        "psr-4": { "thomkit\\multifileupload\\": ["classes/", "elements/"] }
+    },
+    "replace": {
+        "contao-legacy/multifileupload": "self.version"
+    },
+    "extra": {
+        "contao": {
+            "sources": {
+                "": "system/modules/multifileupload"
+            }
+        }
+    }
+}
