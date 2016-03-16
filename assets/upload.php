@@ -2,18 +2,30 @@
 /**
  * Initialize the system
  */
+define('TL_SCRIPT', 'system/modules/multifileupload/assets/upload.php');
 
 $addToFile = htmlspecialchars($_POST['addtofile']);
 $elemID = htmlspecialchars($_POST['elemid']);
 $rename = htmlspecialchars($_POST['rename']);
 $files = $_FILES;
-unset($_POST);
-unset($_FILES);
-if (!defined('TL_MODE'))
-{
-    define('TL_MODE', 'FE');
+$_POST = [];
+$_FILES = [];
 
-    require( dirname(__FILE__).'/../../../initialize.php');
+define('TL_MODE', 'FE');
+
+// Include the Contao initialization script (see #9)
+if (file_exists('../../../initialize.php')) {
+	// Regular way
+	/** @noinspection PhpIncludeInspection */
+	require_once '../../../initialize.php';
+} elseif (file_exists('../../../../system/initialize.php')) {
+	// Contao 4 - Try composer location
+	/** @noinspection PhpIncludeInspection */
+	require_once '../../../../system/initialize.php';
+} else {
+	// Contao 3 - Try composer location
+	/** @noinspection PhpIncludeInspection */
+	require_once '../../../../../system/initialize.php';
 }
 
 if($addToFile == '') $addToFile = \Input::get('addtofile');
