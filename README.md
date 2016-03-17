@@ -1,9 +1,12 @@
 # Contao multi file upload with DropZone
 Contao formular content element "File-Upload with DropZone" based on <a href="http://www.dropzonejs.com/" target="_blank">Dropzonejs</a>
 
+![Alt text](../screenshots/screenshot.jpg?raw=true)
+
 Upload one or multiple files with visual feedback within you regular Contao forms.
 Configure allowed file size, count und type.
 Send uploaded files or links to it by mail.
+
 
 ## features
 * size, count and type of files are configurable
