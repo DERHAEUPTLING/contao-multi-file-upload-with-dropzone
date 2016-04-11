@@ -73,6 +73,10 @@ class DropUpload extends \Widget
 		$this->dictDuplicate 		= $GLOBALS['TL_LANG']['multifileupload']['dictDuplicate'];
 		$this->dictMandatoryText 	= $GLOBALS['TL_LANG']['multifileupload']['dictMandatoryText'];
 
+		$this->dictInProgress 		= $GLOBALS['TL_LANG']['multifileupload']['dictInProgress'];
+
+		
+
 		return $this->addToFile;
 	}
 

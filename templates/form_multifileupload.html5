@@ -24,6 +24,7 @@ $addToFile = $this->generate();
 
 	
 <script type="text/javascript">
+$( document ).ready(function() {
 /*
  * helper functions
  */
@@ -33,6 +34,34 @@ var sanitize = function  (string) {
 var updateSelectorCount = function () {
 	return value = myDropzone.files.length === 0 ? '' : myDropzone.files.length
 }
+
+/* 
+ * disable submit, until upload finished 
+ * displays error message, if submitted
+ */
+var preventSubmit = {
+	selector 	: $('#dropzone_<?php echo($this->strId) ?>').closest('form').find('[type="submit"]'),
+	uploading 	: false,
+	disable  	: function function_name(argument) {
+		preventSubmit.selector
+			.addClass('disabled')
+			.on('click', function(event) {
+				event.preventDefault();
+				if ( !preventSubmit.uploading ) {
+					preventSubmit.selector.after('<p class="error">' + params.dictInProgress + '</p>');
+					preventSubmit.uploading = true;
+				}
+			})
+	},
+	enable 	 	: function function_name(argument) {
+		preventSubmit.selector
+			.removeClass('disabled')
+			.off()
+			.next('.error').remove();
+		preventSubmit.uploading = false;
+	}
+};
+
 
 
 
@@ -70,6 +99,8 @@ var params = {
 	dictRemoveFileConfirmation 	: "<?php echo $this->dictRemoveFileConfirmation; ?>",
 	dictMaxFilesExceeded 		: "<?php echo $this->dictMaxFilesExceeded; ?>",
 	dictDuplicate 				: "<?php echo $this->dictDuplicate; ?>",
+
+	dictInProgress 				: "<?php echo $this->dictInProgress; ?>",
 }
 
 
@@ -121,7 +152,7 @@ var myDropzone = new Dropzone("#dropzone_"+params.input.elemID, {
 					for (_i = 0, _len = this.files.length-1; _i < _len; _i++) {
 						if( this.files[_i].name === file.name || this.files[_i].name === sanitize(file.name)  ){
 							isDuplicate = true;
-							console.log("duplikat: "+file.name)
+							// console.log("duplikat: "+file.name)
 						}
 					}
 				}
@@ -155,9 +186,11 @@ var myDropzone = new Dropzone("#dropzone_"+params.input.elemID, {
 		 	params.selector.val( JSON.stringify(params.input) )
 		 	params.selectorCount.val( updateSelectorCount )
 
-		 	console.log('dropzonejs => Event: success:')
-		 	console.log( params.input )
+		 	// console.log('dropzonejs => Event: success:')
+		 	// console.log( params.input )
 		});
+
+		
 
 		myDropzone.on("removedfile", function(file) {
 			// Called whenever a file is removed from the list. 
@@ -178,9 +211,19 @@ var myDropzone = new Dropzone("#dropzone_"+params.input.elemID, {
 					params.selector.val( JSON.stringify(params.input) )
 					params.selectorCount.val( updateSelectorCount )
 
-					console.log( 'dropzonejs => Event: removedfile -> POST Data')
-					console.log( dataDelete )
+					// console.log( 'dropzonejs => Event: removedfile -> POST Data')
+					// console.log( dataDelete )
 				});
+		});
+
+		myDropzone.on("processing", function() {
+			preventSubmit.disable();
+			console.log('processing')
+		})
+
+		myDropzone.on("queuecomplete", function() {
+			preventSubmit.enable();
+			console.log('complete')
 		});
 
 
@@ -188,8 +231,8 @@ var myDropzone = new Dropzone("#dropzone_"+params.input.elemID, {
 		 * load already existing files
 		 */
         $.get('system/modules/multifileupload/assets/upload.php?addtofile='+params.input.addToFile+'&elemid='+params.input.elemID, function(data) {
-        	console.log('dropzonejs => get existing files:')
-        	console.log(data)
+        	// console.log('dropzonejs => get existing files:')
+        	// console.log(data)
 
             $.each(data, function(key,file){
                 var mockFile = { 
@@ -223,5 +266,5 @@ var myDropzone = new Dropzone("#dropzone_"+params.input.elemID, {
 	}
 
 }); 
-
+});
 </script>

@@ -391,3 +391,10 @@
 .dropzone.error {
   border-color: #c20000;
 }
+
+
+.disabled {
+  cursor: not-allowed !important;
+  display: none;
+}
+

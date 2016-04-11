@@ -54,6 +54,8 @@ $GLOBALS['TL_LANG']['multifileupload']['dictMaxFilesExceeded'] = "You can not up
 $GLOBALS['TL_LANG']['multifileupload']['dictDuplicate'] = "A file with this name already exists.";
 $GLOBALS['TL_LANG']['multifileupload']['dictMandatoryText'] = "Please add a file!";
 
+$GLOBALS['TL_LANG']['multifileupload']['dictInProgress'] = "Please wait, until all files have been uploaded completely!";
+
 
 
 

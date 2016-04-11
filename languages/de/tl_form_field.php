@@ -54,3 +54,9 @@ $GLOBALS['TL_LANG']['multifileupload']['dictRemoveFileConfirmation'] = "";
 $GLOBALS['TL_LANG']['multifileupload']['dictMaxFilesExceeded'] = "Die maximale Anzahl hochladbarer Dateien ist erreicht.";
 $GLOBALS['TL_LANG']['multifileupload']['dictDuplicate'] = "Eine Datei mit diesem Namen ist bereits vorhanden.";
 $GLOBALS['TL_LANG']['multifileupload']['dictMandatoryText'] = "Bitte laden sie eine Datei hoch!";
+
+$GLOBALS['TL_LANG']['multifileupload']['dictInProgress'] = "Bitte warten sie, bis alle Dateien hochgeladen sind!";
+
+
+
+
