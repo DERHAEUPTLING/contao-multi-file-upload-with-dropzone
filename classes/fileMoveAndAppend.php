@@ -83,8 +83,9 @@ class fileMoveAndAppend extends \System
 
 							if (copy(TL_ROOT . '/' . $uploadFolder .'/tmp/'.$addToFile.'/' . $curFile, TL_ROOT . '/' . $uploadFolder.'/'.$storeFolderPreFile . $curFile))
 							{
-								\Dbafs::addResource(TL_ROOT . '/' . $uploadFolder.'/'.$storeFolderPreFile . $curFile);
+								\Dbafs::addResource($uploadFolder.'/'.$storeFolderPreFile . $curFile);
 								@unlink(TL_ROOT . '/' . $uploadFolder .'/tmp/'.$addToFile.'/' . $curFile);
+								\Dbafs::deleteResource($uploadFolder .'/tmp/'.$addToFile.'/' . $curFile);
 
 								if(in_array($myElemData->sendcase,array('attach','all')))
 								{
