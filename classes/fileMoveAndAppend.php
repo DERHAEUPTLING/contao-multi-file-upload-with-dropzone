@@ -70,6 +70,7 @@ class fileMoveAndAppend extends \System
 							if(!file_exists(TL_ROOT . '/' . $uploadFolder.'/'.$addToFile) && $myElemData->storecase != 'file')
 							{
 								new \Folder($uploadFolder.'/'.$addToFile);
+								\Dbafs::addResource($uploadFolder.'/'.$addToFile);
 							}
 					// use ID as folder or file prename
 							if($myElemData->storecase == 'file')
@@ -82,6 +83,7 @@ class fileMoveAndAppend extends \System
 
 							if (copy(TL_ROOT . '/' . $uploadFolder .'/tmp/'.$addToFile.'/' . $curFile, TL_ROOT . '/' . $uploadFolder.'/'.$storeFolderPreFile . $curFile))
 							{
+								\Dbafs::addResource(TL_ROOT . '/' . $uploadFolder.'/'.$storeFolderPreFile . $curFile);
 								@unlink(TL_ROOT . '/' . $uploadFolder .'/tmp/'.$addToFile.'/' . $curFile);
 
 								if(in_array($myElemData->sendcase,array('attach','all')))
@@ -116,7 +118,7 @@ class fileMoveAndAppend extends \System
 					}
 				}
 			}
-			\Dbafs::syncFiles();
+			//\Dbafs::syncFiles();
 		}
 	}
 }
