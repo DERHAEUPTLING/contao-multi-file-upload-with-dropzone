@@ -71,7 +71,7 @@ class processFormData extends \System
 							if (file_exists(TL_ROOT . '/' . $uploadFolder.'/'.$addToFile . '/' . $curFile))
 							{
 								if(!$retValue == '') $retValue .= "<br>";
-								$retValue .= '/' . $uploadFolder.'/'.$addToFile . '/' . $curFile
+								$retValue .= '/' . $uploadFolder.'/'.$addToFile . '/' . $curFile;
 							}
 						}
 						$arrSubmittedArray[$myElemData->name] = $retValue;
