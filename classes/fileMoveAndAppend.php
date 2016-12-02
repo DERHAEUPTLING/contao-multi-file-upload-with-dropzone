@@ -42,7 +42,7 @@ class fileMoveAndAppend extends \System
 		{
 			foreach($files AS $file)
 			{
-				$tmp = split('"elemID"',$file);
+				$tmp = explode('"elemID"',$file);
 				$file = '{"elemID"'.$tmp[1];
 
 //file_put_contents('check.txt',$file."\n", FILE_APPEND );
