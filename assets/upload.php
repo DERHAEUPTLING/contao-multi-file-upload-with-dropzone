@@ -79,7 +79,7 @@ if(!$myElemData->next())
 
 	if (!empty($files)) {
 		$path_parts = pathinfo($files['file']['name']);
-		if(!in_array(strtolower($path_parts['extension']),split(',',strtolower($myElemData->extensions)))) {
+		if(!in_array(strtolower($path_parts['extension']),explode(',',strtolower($myElemData->extensions)))) {
 			echo json_encode(array('status' => 'error','value'=>'extension'));	// Falsche Dateierweiterung
 			die();
 		}
