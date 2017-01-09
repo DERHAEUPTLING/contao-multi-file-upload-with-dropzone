@@ -97,7 +97,7 @@ if(!$myElemData->next())
 	    	$targetPathAbs =  $targetPathAbs. '/'. $files['file']['name'];  //5
 	    }
 	    $tmp = move_uploaded_file($tempFile,$targetPathAbs); //6
-		\Dbafs::addResource($targetPath. '/'. $files['file']['name']);
+		\Dbafs::addResource($targetPath. '/'. $rename);
 		file_exists($targetPathAbs) == true ? $retVal = json_encode(array('status' => 'ok')) : $retVal = json_encode(array('status' => 'error','value'=>'nofile'));	// die Datei ist nicht vorhanden
 		echo($retVal);
 		// alte Ordner loeschen
