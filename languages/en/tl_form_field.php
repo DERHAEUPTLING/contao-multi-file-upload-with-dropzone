@@ -32,6 +32,7 @@ $GLOBALS['TL_LANG']['tl_form_field']['multiuploadFolder'] = array('File save loc
 $GLOBALS['TL_LANG']['tl_form_field']['sendcase'] = array('File forewarding','Please enter if the uploaded files shall be forwareded as attachement or as links.');
 $GLOBALS['TL_LANG']['tl_form_field']['attach'] = array('Attach files','');
 $GLOBALS['TL_LANG']['tl_form_field']['link'] = array('Link files','');
+$GLOBALS['TL_LANG']['tl_form_field']['savetodb'] = array('Save file for "save form-data to database"','');
 $GLOBALS['TL_LANG']['tl_form_field']['all'] = array('Attach and link files','');
 $GLOBALS['TL_LANG']['tl_form_field']['storecase'] = array('Save file options','To prevent conflicts, a new ID is generated for each visitor. <br><br>This ID is used to differentiate the uploaded files and to prevent duplicates. <br><br>After successfull send of the form, files are either copied to a subolder "ID" or copied directly to the choosen folder with new name "ID_filename".');
 $GLOBALS['TL_LANG']['tl_form_field']['folder'] = array('Save to subfolder ID.','');
