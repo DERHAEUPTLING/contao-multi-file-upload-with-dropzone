@@ -32,6 +32,7 @@ $GLOBALS['TL_LANG']['tl_form_field']['multiuploadFolder'] = array('Speicherort',
 $GLOBALS['TL_LANG']['tl_form_field']['sendcase'] = array('Dateiversand','Bitte geben Sie hier an, ob die Dateien als Anhang versandt oder als Link verchickt werden sollen.');
 $GLOBALS['TL_LANG']['tl_form_field']['attach'] = array('Dateien anh&auml;ngen','');
 $GLOBALS['TL_LANG']['tl_form_field']['link'] = array('Dateien verlinken','');
+$GLOBALS['TL_LANG']['tl_form_field']['savetodb'] = array('Dateien speichern für "Formulardaten speichern"','');
 $GLOBALS['TL_LANG']['tl_form_field']['all'] = array('Dateien anh&auml;ngen und verlinken','');
 $GLOBALS['TL_LANG']['tl_form_field']['storecase'] = array('Speicheroptionen','Damit es zu keinen Konflikten kommt, wird für jeden Seitenbesucher eine neue ID erzeugt. <br><br>Diese ID wird verwendet um die hochgeldenen Bilder zu unterscheiden und Duplikate zu vermeiden. <br><br>Dateien werden nach erfolgrichem Formularversand entweder in den neuen Unterordner "ID" kopiert, oder direkt in das ausgewählte Verzeichnis mit neuem Dateinamen "ID_Dateiname".');
 $GLOBALS['TL_LANG']['tl_form_field']['folder'] = array('Im Unterordner ID speichern','');
