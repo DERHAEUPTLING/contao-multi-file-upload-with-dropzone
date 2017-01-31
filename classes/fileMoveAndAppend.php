@@ -115,7 +115,7 @@ class fileMoveAndAppend extends \System
 									{
 										$subfolder = str_replace(array('/','\\'),'',$GLOBALS['TL_CONFIG']['websitePath']);
 										if( $subfolder != '') $subfolder.= '/';
-										$arrSubmittedArray[$myElemData->name] .= $uploadFolder.'/'.$storeFolderPreFile . $curFile;
+										$arrSubmittedArray[$myElemData->name] .= $uploadFolder.'/'.$storeFolderPreFile . $curFile . ';';
 									}
 								}
 								if($myElemData->sendcase == 'attach')
