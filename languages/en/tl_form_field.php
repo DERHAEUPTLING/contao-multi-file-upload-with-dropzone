@@ -25,37 +25,42 @@
 /**
  * Form fields
  */
-$GLOBALS['TL_LANG']['FFL']['multifileupload']    = array('File-Upload with DropZone', '');
-$GLOBALS['TL_LANG']['tl_form_field']['maxuploadsize'] = array('File size','Please enter the maximally allowed filesize in MB. "0" means, that the filesize is not limited.');
-$GLOBALS['TL_LANG']['tl_form_field']['maxuploadcount'] = array('File count','Please enter the maximally allowed count of files. "0" means, that the amount is not limited.');
+$GLOBALS['TL_LANG']['FFL']['multifileupload']    		= array('File-Upload with DropZone', '');
+$GLOBALS['TL_LANG']['tl_form_field']['maxuploadsize'] 	= array('File size','Please enter the maximally allowed filesize in MB. "0" means, that the filesize is not limited.');
+$GLOBALS['TL_LANG']['tl_form_field']['maxuploadcount'] 	= array('File count','Please enter the maximally allowed count of files. "0" means, that the amount is not limited.');
+
 $GLOBALS['TL_LANG']['tl_form_field']['multiuploadFolder'] = array('File save location','Please enter the location where files shall be saved.');
-$GLOBALS['TL_LANG']['tl_form_field']['sendcase'] = array('File forewarding','Please enter if the uploaded files shall be forwareded as attachement or as links.');
-$GLOBALS['TL_LANG']['tl_form_field']['attach'] = array('Attach files','');
-$GLOBALS['TL_LANG']['tl_form_field']['link'] = array('Link files','');
-$GLOBALS['TL_LANG']['tl_form_field']['savetodb'] = array('Save file for "save form-data to database"','');
-$GLOBALS['TL_LANG']['tl_form_field']['all'] = array('Attach and link files','');
-$GLOBALS['TL_LANG']['tl_form_field']['storecase'] = array('Save file options','To prevent conflicts, a new ID is generated for each visitor. <br><br>This ID is used to differentiate the uploaded files and to prevent duplicates. <br><br>After successfull send of the form, files are either copied to a subolder "ID" or copied directly to the choosen folder with new name "ID_filename".');
-$GLOBALS['TL_LANG']['tl_form_field']['folder'] = array('Save to subfolder ID.','');
-$GLOBALS['TL_LANG']['tl_form_field']['file'] = array('Prepend ID to the filename and save without subfolder.','');
+
+$GLOBALS['TL_LANG']['tl_form_field']['storecase'] 		= array('Save file options','To prevent conflicts, a new ID is generated for each visitor. <br><br>This ID is used to differentiate the uploaded files and to prevent duplicates. <br><br>After successfull send of the form, files are either copied to a subolder "ID" or copied directly to the choosen folder with new name "ID_filename".');
+$GLOBALS['TL_LANG']['tl_form_field']['folder'] 			= array('Save to subfolder ID.','');
+$GLOBALS['TL_LANG']['tl_form_field']['file'] 			= array('Prepend ID to the filename and save without subfolder.','');
+
+
+$GLOBALS['TL_LANG']['tl_form_field']['sendcase'] 		= array('File forewarding','How should files and url´s be forewarded / saved?');
+$GLOBALS['TL_LANG']['tl_form_field']['attach'] 			= array('Attach files','');
+$GLOBALS['TL_LANG']['tl_form_field']['link'] 			= array('Link files','');
+$GLOBALS['TL_LANG']['tl_form_field']['all'] 			= array('Attach and link files','');
+$GLOBALS['TL_LANG']['tl_form_field']['savetodb'] 		= array('String of paths separated by ";". <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(for further working with those files)','');
+
 
 /**
  * Frontend
  */
-$GLOBALS['TL_LANG']['multifileupload']['dictDefaultMessage'] = "Drop files here to upload.";
-$GLOBALS['TL_LANG']['multifileupload']['dictFallbackMessage'] = "Your browser does not support drag'n'drop file uploads.";
-$GLOBALS['TL_LANG']['multifileupload']['dictFallbackText'] = "Please use the fallback form below to upload your files like in the olden days.";
-$GLOBALS['TL_LANG']['multifileupload']['dictFileTooBig'] = "File is too big ({[{filesize}]}MiB).  Max filesize: {[{maxFilesize}]}MiB.";
-$GLOBALS['TL_LANG']['multifileupload']['dictResponseError'] = "Server responded with {[{statusCode}]} code.";
-$GLOBALS['TL_LANG']['multifileupload']['dictInvalidFileType'] = "You can't upload files of this type.";
-$GLOBALS['TL_LANG']['multifileupload']['dictCancelUpload'] = "Cancel upload";
+$GLOBALS['TL_LANG']['multifileupload']['dictDefaultMessage'] 	= "Drop files here to upload.";
+$GLOBALS['TL_LANG']['multifileupload']['dictFallbackMessage'] 	= "Your browser does not support drag'n'drop file uploads.";
+$GLOBALS['TL_LANG']['multifileupload']['dictFallbackText'] 		= "Please use the fallback form below to upload your files like in the olden days.";
+$GLOBALS['TL_LANG']['multifileupload']['dictFileTooBig'] 		= "File is too big ({[{filesize}]}MiB).  Max filesize: {[{maxFilesize}]}MiB.";
+$GLOBALS['TL_LANG']['multifileupload']['dictResponseError'] 	= "Server responded with {[{statusCode}]} code.";
+$GLOBALS['TL_LANG']['multifileupload']['dictInvalidFileType'] 	= "You can't upload files of this type.";
+$GLOBALS['TL_LANG']['multifileupload']['dictCancelUpload'] 		= "Cancel upload";
 $GLOBALS['TL_LANG']['multifileupload']['dictCancelUploadConfirmation'] = "Are you sure you want to cancel this upload?";
-$GLOBALS['TL_LANG']['multifileupload']['dictRemoveFile'] = "Remove file";
+$GLOBALS['TL_LANG']['multifileupload']['dictRemoveFile'] 		= "Remove file";
 $GLOBALS['TL_LANG']['multifileupload']['dictRemoveFileConfirmation'] = "";
-$GLOBALS['TL_LANG']['multifileupload']['dictMaxFilesExceeded'] = "You can not upload any more files.";
-$GLOBALS['TL_LANG']['multifileupload']['dictDuplicate'] = "A file with this name already exists.";
-$GLOBALS['TL_LANG']['multifileupload']['dictMandatoryText'] = "Please add a file!";
+$GLOBALS['TL_LANG']['multifileupload']['dictMaxFilesExceeded'] 	= "You can not upload any more files.";
+$GLOBALS['TL_LANG']['multifileupload']['dictDuplicate'] 		= "A file with this name already exists.";
+$GLOBALS['TL_LANG']['multifileupload']['dictMandatoryText'] 	= "Please add a file!";
 
-$GLOBALS['TL_LANG']['multifileupload']['dictInProgress'] = "Please wait, until all files have been uploaded completely!";
+$GLOBALS['TL_LANG']['multifileupload']['dictInProgress'] 		= "Please wait, until all files have been uploaded completely!";
 
 
 

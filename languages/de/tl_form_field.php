@@ -25,38 +25,44 @@
 /**
  * Backend Form fields
  */
-$GLOBALS['TL_LANG']['FFL']['multifileupload']    = array('Datei-Upload DropZone', '');
-$GLOBALS['TL_LANG']['tl_form_field']['maxuploadsize'] = array('Upload-Gr&ouml;&szlig;e','Bitte geben Sie hier die maximal erlaubte Gr&ouml;&szlig;e in MB der Dateien an. "0" bedeutet, dass die Gr&ouml;&szlig;e nicht begrenz ist.');
-$GLOBALS['TL_LANG']['tl_form_field']['maxuploadcount'] = array('Upload-Anzahl','Bitte geben Sie hier die maximal erlaubte Anzahl der Dateien an. "0" bedeutet, dass die Anzahl nicht begrenzt ist.');
+$GLOBALS['TL_LANG']['FFL']['multifileupload']     		= array('Datei-Upload DropZone', '');
+$GLOBALS['TL_LANG']['tl_form_field']['maxuploadsize'] 	= array('Upload-Gr&ouml;&szlig;e','Bitte geben Sie hier die maximal erlaubte Gr&ouml;&szlig;e in MB der Dateien an. "0" bedeutet, dass die Gr&ouml;&szlig;e nicht begrenz ist.');
+$GLOBALS['TL_LANG']['tl_form_field']['maxuploadcount'] 	= array('Upload-Anzahl','Bitte geben Sie hier die maximal erlaubte Anzahl der Dateien an. "0" bedeutet, dass die Anzahl nicht begrenzt ist.');
+
 $GLOBALS['TL_LANG']['tl_form_field']['multiuploadFolder'] = array('Speicherort','Bitte geben Sie hier an, wo die Dateien abgelegt werden sollen.');
-$GLOBALS['TL_LANG']['tl_form_field']['sendcase'] = array('Dateiversand','Bitte geben Sie hier an, ob die Dateien als Anhang versandt oder als Link verchickt werden sollen.');
-$GLOBALS['TL_LANG']['tl_form_field']['attach'] = array('Dateien anh&auml;ngen','');
-$GLOBALS['TL_LANG']['tl_form_field']['link'] = array('Dateien verlinken','');
-$GLOBALS['TL_LANG']['tl_form_field']['savetodb'] = array('Dateien speichern für "Formulardaten speichern"','');
-$GLOBALS['TL_LANG']['tl_form_field']['all'] = array('Dateien anh&auml;ngen und verlinken','');
-$GLOBALS['TL_LANG']['tl_form_field']['storecase'] = array('Speicheroptionen','Damit es zu keinen Konflikten kommt, wird für jeden Seitenbesucher eine neue ID erzeugt. <br><br>Diese ID wird verwendet um die hochgeldenen Bilder zu unterscheiden und Duplikate zu vermeiden. <br><br>Dateien werden nach erfolgrichem Formularversand entweder in den neuen Unterordner "ID" kopiert, oder direkt in das ausgewählte Verzeichnis mit neuem Dateinamen "ID_Dateiname".');
-$GLOBALS['TL_LANG']['tl_form_field']['folder'] = array('Im Unterordner ID speichern','');
-$GLOBALS['TL_LANG']['tl_form_field']['file'] = array('ID dem Dateinamen voranstellen und ohne Unterordner speichern.','');
+
+$GLOBALS['TL_LANG']['tl_form_field']['storecase'] 		= array('Speicheroptionen','Damit es zu keinen Konflikten kommt, wird für jeden Seitenbesucher eine neue ID erzeugt. <br><br>Diese ID wird verwendet um die hochgeldenen Bilder zu unterscheiden und Duplikate zu vermeiden. <br><br>Dateien werden nach erfolgrichem Formularversand entweder in den neuen Unterordner "ID" kopiert, oder direkt in das ausgewählte Verzeichnis mit neuem Dateinamen "ID_Dateiname".');
+$GLOBALS['TL_LANG']['tl_form_field']['folder'] 			= array('Im Unterordner ID speichern','');
+$GLOBALS['TL_LANG']['tl_form_field']['file'] 			= array('ID dem Dateinamen voranstellen und ohne Unterordner speichern.','');
+
+
+$GLOBALS['TL_LANG']['tl_form_field']['sendcase'] 		= array('Dateiversand','Wie sollen Dateien und URLs übertragen / gespeichert werden?');
+$GLOBALS['TL_LANG']['tl_form_field']['attach'] 			= array('Dateien anh&auml;ngen','');
+$GLOBALS['TL_LANG']['tl_form_field']['link'] 			= array('Dateien verlinken','');
+$GLOBALS['TL_LANG']['tl_form_field']['all'] 			= array('Dateien anh&auml;ngen und verlinken','');
+$GLOBALS['TL_LANG']['tl_form_field']['savetodb'] 		= array('String der Pfade getrennt durch ";". <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(für die weitere Bearbeitung der Dateien.)','');
+
+
 
 
 /**
  * Frontend
  */
-$GLOBALS['TL_LANG']['multifileupload']['dictDefaultMessage'] = "Dateien hier ablegen oder klicken.";
-$GLOBALS['TL_LANG']['multifileupload']['dictFallbackMessage'] = "Ihr Browser unterstützt kein Upload per Drag'n'drop.";
-$GLOBALS['TL_LANG']['multifileupload']['dictFallbackText'] = "Bitte benutzten Sie das Fallback Formular um Ihre Dateien wie in den guten alten Tagen hochzuladen.";
-$GLOBALS['TL_LANG']['multifileupload']['dictFileTooBig'] = "Die Datei ist zu groß ({[{filesize}]}MiB).  Max Dateigröße: {[{maxFilesize}]}MiB.";
-$GLOBALS['TL_LANG']['multifileupload']['dictResponseError'] = "Server antwortet mit dem StausCode: {[{statusCode}]} .";
-$GLOBALS['TL_LANG']['multifileupload']['dictInvalidFileType'] = "Sie können Dateien dieses Dateityps nicht hochladen.";
-$GLOBALS['TL_LANG']['multifileupload']['dictCancelUpload'] = "Upload abbrechen";
+$GLOBALS['TL_LANG']['multifileupload']['dictDefaultMessage'] 	= "Dateien hier ablegen oder klicken.";
+$GLOBALS['TL_LANG']['multifileupload']['dictFallbackMessage'] 	= "Ihr Browser unterstützt kein Upload per Drag'n'drop.";
+$GLOBALS['TL_LANG']['multifileupload']['dictFallbackText'] 		= "Bitte benutzten Sie das Fallback Formular um Ihre Dateien wie in den guten alten Tagen hochzuladen.";
+$GLOBALS['TL_LANG']['multifileupload']['dictFileTooBig'] 		= "Die Datei ist zu groß ({[{filesize}]}MiB).  Max Dateigröße: {[{maxFilesize}]}MiB.";
+$GLOBALS['TL_LANG']['multifileupload']['dictResponseError'] 	= "Server antwortet mit dem StausCode: {[{statusCode}]} .";
+$GLOBALS['TL_LANG']['multifileupload']['dictInvalidFileType'] 	= "Sie können Dateien dieses Dateityps nicht hochladen.";
+$GLOBALS['TL_LANG']['multifileupload']['dictCancelUpload'] 		= "Upload abbrechen";
 $GLOBALS['TL_LANG']['multifileupload']['dictCancelUploadConfirmation'] = "Sind Sie sicher, dass sie diesen Upload abbrechen wollen?";
-$GLOBALS['TL_LANG']['multifileupload']['dictRemoveFile'] = "Datei löschen";
+$GLOBALS['TL_LANG']['multifileupload']['dictRemoveFile'] 		= "Datei löschen";
 $GLOBALS['TL_LANG']['multifileupload']['dictRemoveFileConfirmation'] = "";
-$GLOBALS['TL_LANG']['multifileupload']['dictMaxFilesExceeded'] = "Die maximale Anzahl hochladbarer Dateien ist erreicht.";
-$GLOBALS['TL_LANG']['multifileupload']['dictDuplicate'] = "Eine Datei mit diesem Namen ist bereits vorhanden.";
-$GLOBALS['TL_LANG']['multifileupload']['dictMandatoryText'] = "Bitte laden sie eine Datei hoch!";
+$GLOBALS['TL_LANG']['multifileupload']['dictMaxFilesExceeded'] 	= "Die maximale Anzahl hochladbarer Dateien ist erreicht.";
+$GLOBALS['TL_LANG']['multifileupload']['dictDuplicate'] 		= "Eine Datei mit diesem Namen ist bereits vorhanden.";
+$GLOBALS['TL_LANG']['multifileupload']['dictMandatoryText'] 	= "Bitte laden sie eine Datei hoch!";
 
-$GLOBALS['TL_LANG']['multifileupload']['dictInProgress'] = "Bitte warten sie, bis alle Dateien hochgeladen sind!";
+$GLOBALS['TL_LANG']['multifileupload']['dictInProgress'] 		= "Bitte warten sie, bis alle Dateien hochgeladen sind!";
 
 
 
