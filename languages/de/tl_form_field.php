@@ -31,7 +31,7 @@ $GLOBALS['TL_LANG']['tl_form_field']['maxuploadcount'] 	= array('Upload-Anzahl',
 
 $GLOBALS['TL_LANG']['tl_form_field']['multiuploadFolder'] = array('Speicherort','Bitte geben Sie hier an, wo die Dateien abgelegt werden sollen.');
 
-$GLOBALS['TL_LANG']['tl_form_field']['storecase'] 		= array('Speicheroptionen','Damit es zu keinen Konflikten kommt, wird für jeden Seitenbesucher eine neue ID erzeugt. <br><br>Diese ID wird verwendet um die hochgeldenen Bilder zu unterscheiden und Duplikate zu vermeiden. <br><br>Dateien werden nach erfolgrichem Formularversand entweder in den neuen Unterordner "ID" kopiert, oder direkt in das ausgewählte Verzeichnis mit neuem Dateinamen "ID_Dateiname".');
+$GLOBALS['TL_LANG']['tl_form_field']['storecase'] 		= array('Speicheroptionen','Damit es zu keinen Konflikten kommt, wird für jeden Seitenbesucher eine neue ID erzeugt. <br><br>Diese ID wird verwendet um die hochgeldenen Bilder zu unterscheiden und Duplikate zu vermeiden. <br><br>Dateien werden nach erfolgreichem Formularversand entweder in den neuen Unterordner "ID" kopiert, oder direkt in das ausgewählte Verzeichnis mit neuem Dateinamen "ID_Dateiname".');
 $GLOBALS['TL_LANG']['tl_form_field']['folder'] 			= array('Im Unterordner ID speichern','');
 $GLOBALS['TL_LANG']['tl_form_field']['file'] 			= array('ID dem Dateinamen voranstellen und ohne Unterordner speichern.','');
 
