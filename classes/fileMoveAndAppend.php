@@ -108,7 +108,7 @@ class fileMoveAndAppend extends \System
 										$arrSubmittedArray[$myElemData->name] .= "\nhttp://" . $_SERVER['SERVER_NAME'] . '/' . $subfolder . $uploadFolder.'/'.$storeFolderPreFile . $curFile;
 									}
 								}
-                                if(in_array($myElemData->sendcase,array('link','savetodb')))
+                                if(in_array($myElemData->sendcase,array('savetodb')))
 								{
 								// Dateien speichern -> Formular save to database
 									if (file_exists(TL_ROOT . '/' . $uploadFolder.'/'.$storeFolderPreFile . $curFile))
