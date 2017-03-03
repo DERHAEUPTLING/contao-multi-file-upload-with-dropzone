@@ -4,9 +4,11 @@
  */
 define('TL_SCRIPT', 'system/modules/multifileupload/assets/upload.php');
 
-$addToFile = htmlspecialchars($_POST['addtofile']);
-$elemID = htmlspecialchars($_POST['elemid']);
-$rename = htmlspecialchars($_POST['rename']);
+
+$addToFile = isset($_POST['addtofile']) ? htmlspecialchars($_POST['addtofile']) : '';
+$elemID = isset($_POST['elemid']) ? htmlspecialchars($_POST['elemid']) : '';
+$rename = isset($_POST['rename']) ? htmlspecialchars($_POST['rename']) : '';
+
 $files = $_FILES;
 $_POST = [];
 $_FILES = [];

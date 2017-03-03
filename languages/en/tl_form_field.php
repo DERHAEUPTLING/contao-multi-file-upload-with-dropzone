@@ -36,12 +36,12 @@ $GLOBALS['TL_LANG']['tl_form_field']['folder'] 			= array('Save to subfolder ID.
 $GLOBALS['TL_LANG']['tl_form_field']['file'] 			= array('Prepend ID to the filename and save without subfolder.','');
 
 
-$GLOBALS['TL_LANG']['tl_form_field']['sendcase'] 		= array('File forewarding','How should files and url´s be forewarded / saved?');
+$GLOBALS['TL_LANG']['tl_form_field']['sendcase'] 		= array('File forewarding','How should the uploaded files be attached to the mail, when sending the formdata by mail is activated.');
 $GLOBALS['TL_LANG']['tl_form_field']['attach'] 			= array('Attach files','');
 $GLOBALS['TL_LANG']['tl_form_field']['link'] 			= array('Link files','');
 $GLOBALS['TL_LANG']['tl_form_field']['all'] 			= array('Attach and link files','');
-$GLOBALS['TL_LANG']['tl_form_field']['savetodb'] 		= array('String of paths separated by ";". <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(for further working with those files)','');
-
+$GLOBALS['TL_LANG']['tl_form_field']['dbstorecut'] 		= array('Database: save relative paths',
+	'Serialized relative paths (omitting the host) are saved to the database, if saving the formdate to databese is enabled.');
 
 /**
  * Frontend

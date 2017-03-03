@@ -18,3 +18,14 @@
 array_insert($GLOBALS['TL_FFL'], array_search('upload', array_keys($GLOBALS['TL_FFL'])) + 1, array('multifileupload' => 'multifileupload\\DropUpload'));
 
 $GLOBALS['TL_HOOKS']['prepareFormData'][] = array('thomkit\multifileupload\fileMoveAndAppend', 'moveAppend');
+
+
+
+/*
+ * -------------------------------------------------------------------------
+ * HOOKS
+ * -------------------------------------------------------------------------
+ *
+ */
+if (TL_MODE == 'FE') $GLOBALS['TL_HOOKS']['storeFormData'][] = array('thomkit\multifileupload\formUploadStore','myStoreFormData');
+

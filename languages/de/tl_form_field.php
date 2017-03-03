@@ -31,16 +31,17 @@ $GLOBALS['TL_LANG']['tl_form_field']['maxuploadcount'] 	= array('Upload-Anzahl',
 
 $GLOBALS['TL_LANG']['tl_form_field']['multiuploadFolder'] = array('Speicherort','Bitte geben Sie hier an, wo die Dateien abgelegt werden sollen.');
 
-$GLOBALS['TL_LANG']['tl_form_field']['storecase'] 		= array('Speicheroptionen','Damit es zu keinen Konflikten kommt, wird für jeden Seitenbesucher eine neue ID erzeugt. <br><br>Diese ID wird verwendet um die hochgeldenen Bilder zu unterscheiden und Duplikate zu vermeiden. <br><br>Dateien werden nach erfolgreichem Formularversand entweder in den neuen Unterordner "ID" kopiert, oder direkt in das ausgewählte Verzeichnis mit neuem Dateinamen "ID_Dateiname".');
+$GLOBALS['TL_LANG']['tl_form_field']['storecase'] 		= array('Speicheroptionen','Damit es zu keinen Konflikten kommt, wird für jeden Seitenbesucher eine neue ID erzeugt. <br><br>Diese ID wird verwendet um die hochgeldenen Bilder zu unterscheiden und Duplikate zu vermeiden. <br><br>Dateien werden nach erfolgrichem Formularversand entweder in den neuen Unterordner "ID" kopiert, oder direkt in das ausgewählte Verzeichnis mit neuem Dateinamen "ID_Dateiname".');
 $GLOBALS['TL_LANG']['tl_form_field']['folder'] 			= array('Im Unterordner ID speichern','');
 $GLOBALS['TL_LANG']['tl_form_field']['file'] 			= array('ID dem Dateinamen voranstellen und ohne Unterordner speichern.','');
 
 
-$GLOBALS['TL_LANG']['tl_form_field']['sendcase'] 		= array('Dateiversand','Wie sollen Dateien und URLs übertragen / gespeichert werden?');
+$GLOBALS['TL_LANG']['tl_form_field']['sendcase'] 		= array('Dateiversand','Wie sollen die hochgeladenen Dateien in die E-Mail eingebunden werden, falls die Formulardaten per E-Mail versendet werden.');
 $GLOBALS['TL_LANG']['tl_form_field']['attach'] 			= array('Dateien anh&auml;ngen','');
 $GLOBALS['TL_LANG']['tl_form_field']['link'] 			= array('Dateien verlinken','');
 $GLOBALS['TL_LANG']['tl_form_field']['all'] 			= array('Dateien anh&auml;ngen und verlinken','');
-$GLOBALS['TL_LANG']['tl_form_field']['savetodb'] 		= array('String der Pfade getrennt durch ";". <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(für die weitere Bearbeitung der Dateien.)','');
+$GLOBALS['TL_LANG']['tl_form_field']['dbstorecut'] 		= array('Datenbank: relative Dateipfade speichern',
+	'Serialisierte relative Pfade (ohne Host) in der Datenbank speichern, wenn das Speichern der Formulardaten in der Datenbank aktiviert ist.');
 
 
 

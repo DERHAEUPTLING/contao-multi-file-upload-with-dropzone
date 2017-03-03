@@ -3,7 +3,7 @@
 /**
  * Contao Open Source CMS
  *
- * Copyright (c) 2005-2015 Leo Feyer
+ * Copyright (c) 2005-2017 Leo Feyer
  *
  * @license LGPL-3.0+
  */
@@ -24,8 +24,9 @@ ClassLoader::addNamespaces(array
 ClassLoader::addClasses(array
 (
 	// Classes
-	'thomkit\multifileupload\processFormData'   => 'system/modules/multifileupload/classes/processFormData.php',
+	'thomkit\multifileupload\formUploadStore'   => 'system/modules/multifileupload/classes/formUploadStore.php',
 	'thomkit\multifileupload\fileMoveAndAppend' => 'system/modules/multifileupload/classes/fileMoveAndAppend.php',
+	'thomkit\multifileupload\processFormData'   => 'system/modules/multifileupload/classes/processFormData.php',
 
 	// Elements
 	'thomkit\multifileupload\DropUpload'        => 'system/modules/multifileupload/elements/DropUpload.php',
