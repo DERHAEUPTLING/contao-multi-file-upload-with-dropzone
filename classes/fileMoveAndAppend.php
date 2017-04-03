@@ -38,6 +38,8 @@ class fileMoveAndAppend extends \System
 		if($files == "") $files = $this->Input->post('attachfiles');
 		// get JSON-data
 
+		$_SERVER['formFileToDb'] = array();
+
 		if($files != "")
 		{
 			foreach($files AS $file)
@@ -97,6 +99,8 @@ class fileMoveAndAppend extends \System
 										'tmp_name' =>  TL_ROOT . '/' . $uploadFolder.'/'.$storeFolderPreFile . $curFile,
 										'uploaded' => false
 									);
+									$subfolder = str_replace(array('/','\\'),'',$GLOBALS['TL_CONFIG']['websitePath']);
+									if( $subfolder != '') $subfolder.= '/';
 								}
 								if(in_array($myElemData->sendcase,array('link','all')))
 								{
@@ -108,7 +112,10 @@ class fileMoveAndAppend extends \System
 										$arrSubmittedArray[$myElemData->name] .= "\nhttp://" . $_SERVER['SERVER_NAME'] . '/' . $subfolder . $uploadFolder.'/'.$storeFolderPreFile . $curFile;
 									}
 								}
-                                
+
+								// Dateien fuer das Speichern in die DB auflisten
+								$_SERVER['formFileToDb'][$myElemData->name] .= "\nhttp://" . $_SERVER['SERVER_NAME'] . '/' . $subfolder . $uploadFolder.'/'.$storeFolderPreFile . $curFile;
+
 								if($myElemData->sendcase == 'attach')
 								{
 								// Datei-Verlinkung loeschen

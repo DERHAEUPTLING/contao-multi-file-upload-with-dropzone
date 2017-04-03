@@ -14,7 +14,8 @@ Send uploaded files or links to it by mail.
 * temporary files are saved in a tmp folder and will be:
  *  deleted after 3h when form got not submitted
  *  or moved to the files save location when the form is submitted successfully 
-* uploaded files can be send or linked by email
+* uploaded files can be send, linked or sand & linked by email
+* paths of uploaded images can be saved to database (from the from settings)
 * multi language support
 * filenames get sanitized automatically to prevent conflicts on server / on sending email
 

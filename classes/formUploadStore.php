@@ -38,16 +38,15 @@ class formUploadStore extends \System
 		$myElemData = $this->Database->prepare("SELECT name, dbstorecut FROM tl_form_field WHERE pid = ".$formId." AND type='multifileupload'")->execute();
 		while($myElemData->next())
 		{
-			if($arrSet[$myElemData->name] != '')
+			if($_SERVER['formFileToDb'][$myElemData->name] != '')
 			{
 				// files exists
-				$filesArr = explode("\n",$arrSet[$myElemData->name]);
+				$filesArr = explode("\n",$_SERVER['formFileToDb'][$myElemData->name]);
 				if($myElemData->dbstorecut == 1)
 				{
 					// cut filepath
 					for($loop = 0; $loop < count($filesArr); $loop++)
 					{
-
 						$filesArr[$loop] = str_replace(array('http://'.$killPath,'https://'.$killPath),'',$filesArr[$loop]);
 					}
 				}
