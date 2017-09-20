@@ -27,12 +27,5 @@
                 "": "web/system/modules/multifileupload"
             }
         }
-    },
-    "repositories": [
-        {
-            "options": {
-                "symlink": false
-            }
-        }
-    ]
+    }
 }
