@@ -24,7 +24,7 @@
     "extra": {
         "contao": {
             "sources": {
-                "": "web/system/modules/multifileupload"
+                "": "system/modules/multifileupload"
             }
         }
     }
