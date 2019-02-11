@@ -1,3 +1,6 @@
+# DEPRECATED.
+have a look at instead https://github.com/terminal42/contao-fineuploader
+
 # Contao multi file upload with DropZone
 Contao formular content element "File-Upload with DropZone" based on <a href="http://www.dropzonejs.com/" target="_blank">Dropzonejs</a>
 
