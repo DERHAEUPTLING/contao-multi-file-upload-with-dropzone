@@ -32,8 +32,8 @@ class fileMoveAndAppend extends \System
 	{
 	file_put_contents ('uploadlog.txt','Die Funktion wurde aufgerufen');
 		$this->import('Database');
-		$_POST[myid] = '';
-		$_GET[myid] = '';
+		$_POST['myid'] = '';
+		$_GET['myid'] = '';
 		$files = $this->Input->get('attachfiles');
 		if($files == "") $files = $this->Input->post('attachfiles');
 		// get JSON-data
